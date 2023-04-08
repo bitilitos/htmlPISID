@@ -1,0 +1,9 @@
+body {
+    background-color: #394244;
+    font-family: 'Lato', sans-serif;
+    color: #373545;
+}
+
+.underline {
+    text-decoration: underline;
+}

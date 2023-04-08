@@ -1,0 +1,55 @@
+.info-box{
+    background-image: url("images/backgroundLogin.svg");
+    background-size: cover;
+    opacity: 0.8;
+    filter: brightness(1.7);
+    position:absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 70%;
+    height: 70%;
+}
+
+.info-box-content{
+    padding-top: 100px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.welcomeTitle{
+    margin-top: 80px;
+    text-align: center;
+    font-size: 35px;
+}
+
+.leftButton, .rightButton{
+    text-align: center;
+    padding: 20px;
+    width: 250px;
+    height: 80px;
+    border: none;
+    border-radius: 5px;
+}
+
+.leftButton{
+    background-color: #54516B;
+}
+
+.rightButton{
+    background-color: #4B5859;
+}
+
+.createExperiment, .experimentManagement{
+    text-decoration: none;
+    color: white;
+    font-size: 22px;
+}
+
+.vertical-line{
+    margin-top: -80px;
+    border-left: 2px solid #5F5F5F;
+    height: 300px;
+}

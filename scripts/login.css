@@ -1,12 +1,3 @@
-body {
-    background-color: #394244;
-    font-family: 'Lato', sans-serif;
-}
-
-.underline {
-    text-decoration: underline;
-}
-
 .info-box{
     display: flex;
     background-image: url("images/backgroundLogin.svg");
@@ -51,12 +42,12 @@ body {
 }
 
 .info-box-form-content{
-    color: #373545;
     position: absolute;
     top: 50px;
     left: 20px;
     margin: auto;
 }
+
 
 .loginTitle{
     font-size: 35px;
