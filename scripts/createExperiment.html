@@ -1,10 +1,192 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="createExperiment.css">
 </head>
 <body>
-  <p>ENTREI</p>
+<main>
+    <section>
+        <div class="info-box">
+            <div>
+                <img src="images/back.png" class="icon"><a class="backLink" href="home.html">Go Back</a>
+            </div>
+            <div class="homeTitle">
+                <h1 class="mainTitle"><span class="underline">C</span>reate Experiment</h1>
+            </div>
+            <form method="post" action="createExperiment.php">
+                <div class="info-box-content">
+                    <div class="leftColumn">
+                        <textarea class="descriptionTextArea" name="description" placeholder=" Description" cols="40" rows="5" required></textarea>
+                        <br><br>
+                        <img src="images/research.png" class="icon"><input class="createExperimentInput" type="text" name="researcher" placeholder=" Researcher" required>
+                        <br><br>
+                        <img src="images/calendar.png" class="icon"><input class="createExperimentInput" type="date" name="date" placeholder=" Date of Start of Experiment" required>
+                    </div>
+                    <div class="rightColumn">
+                        <img src="images/numbers.png" class="icon"><input class="createExperimentInput" type="number" min="1" max="100" name="ratsNumber" placeholder=" Rats Number" required>
+                        <br><br>
+                        <img src="images/rat.png" class="icon"><input class="createExperimentInput" type="number" min="1" max="100" name="ratsLimitPerRoom" placeholder=" Rats Limit per Room" required>
+                        <br><br>
+                        <img src="images/hand.png" class="icon"><input class="createExperimentInput" type="number" name="secondsWithoutMovement" placeholder=" Seconds Without Movement" required>
+                        <br><br>
+                        <img src="images/thermometer.png" class="icon"><input class="createExperimentInput" type="number" step="any" name="idealTemperature" placeholder=" Ideal Temperature" required>
+                        <br><br>
+                        <img src="images/variation.png" class="icon"><input class="createExperimentInput" type="number" step="any" name="varitionMaximumTemperature" placeholder=" Varition Maximum Temperature" required>
+                    </div>
+                </div>
+                <div class="info-box-content">
+                    <div class="dropdowns">
+                        <select class="selects" id="room1" name="room1">
+                            <option value="">Room 1 - Choose Odour</option>
+                            <option value="option1">Option 1</option>
+                            <option value="option2">Option 2</option>
+                            <option value="option3">Option 3</option>
+                        </select>
+                        <br><br>
+                        <select class="selects" id="room2" name="room2">
+                            <option value="">Room 2 - Choose Odour</option>
+                            <option value="option1">Option 1</option>
+                            <option value="option2">Option 2</option>
+                            <option value="option3">Option 3</option>
+                        </select>
+                        <br><br>
+                        <select class="selects" id="room3" name="room3">
+                            <option value="">Room 3 - Choose Odour</option>
+                            <option value="option1">Option 1</option>
+                            <option value="option2">Option 2</option>
+                            <option value="option3">Option 3</option>
+                        </select>
+                        <br><br>
+                        <select class="selects" id="room4" name="room4">
+                            <option value="">Room 4 - Choose Odour</option>
+                            <option value="option1">Option 1</option>
+                            <option value="option2">Option 2</option>
+                            <option value="option3">Option 3</option>
+                        </select>
+                        <br><br>
+                        <select class="selects" id="room5" name="room5">
+                            <option value="">Room 5 - Choose Odour</option>
+                            <option value="option1">Option 1</option>
+                            <option value="option2">Option 2</option>
+                            <option value="option3">Option 3</option>
+                        </select>
+                        <br><br>
+                        <select class="selects" id="room6" name="room6">
+                            <option value="">Room 6 - Choose Odour</option>
+                            <option value="option1">Option 1</option>
+                            <option value="option2">Option 2</option>
+                            <option value="option3">Option 3</option>
+                        </select>
+                        <br><br>
+                        <select class="selects" id="room7" name="room1">
+                            <option value="">Room 7 - Choose Odour</option>
+                            <option value="option1">Option 1</option>
+                            <option value="option2">Option 2</option>
+                            <option value="option3">Option 3</option>
+                        </select>
+                        <br><br>
+                        <select class="selects" id="room8" name="room8">
+                            <option value="">Room 8 - Choose Odour</option>
+                            <option value="option1">Option 1</option>
+                            <option value="option2">Option 2</option>
+                            <option value="option3">Option 3</option>
+                        </select>
+                        <br><br>
+                        <select class="selects" id="room9" name="room9">
+                            <option value="">Room 9 - Choose Odour</option>
+                            <option value="option1">Option 1</option>
+                            <option value="option2">Option 2</option>
+                            <option value="option3">Option 3</option>
+                        </select>
+                        <br><br>
+                        <select class="selects" id="room10" name="room10">
+                            <option value="">Room 10 - Choose Odour</option>
+                            <option value="option1">Option 1</option>
+                            <option value="option2">Option 2</option>
+                            <option value="option3">Option 3</option>
+                        </select>
+                    </div>
+                    <div class="dropdowns">
+                        <select class="selects" id="substance1" name="substance1">
+                            <option value="">Substance 1 - Choose Number of Rats</option>
+                            <option value="option1">Option 1</option>
+                            <option value="option2">Option 2</option>
+                            <option value="option3">Option 3</option>
+                        </select>
+                        <br><br>
+                        <select class="selects" id="substance2" name="substance2">
+                            <option value="">Substance 2 - Choose Number of Rats</option>
+                            <option value="option1">Option 1</option>
+                            <option value="option2">Option 2</option>
+                            <option value="option3">Option 3</option>
+                        </select>
+                        <br><br>
+                        <select class="selects" id="substance3" name="substance3">
+                            <option value="">Substance 3 - Choose Number of Rats</option>
+                            <option value="option1">Option 1</option>
+                            <option value="option2">Option 2</option>
+                            <option value="option3">Option 3</option>
+                        </select>
+                        <br><br>
+                        <select class="selects" id="substance4" name="substance4">
+                            <option value="">Substance 4 - Choose Number of Rats</option>
+                            <option value="option1">Option 1</option>
+                            <option value="option2">Option 2</option>
+                            <option value="option3">Option 3</option>
+                        </select>
+                        <br><br>
+                        <select class="selects" id="substance5" name="substance5">
+                            <option value="">Substance 5 - Choose Number of Rats</option>
+                            <option value="option1">Option 1</option>
+                            <option value="option2">Option 2</option>
+                            <option value="option3">Option 3</option>
+                        </select>
+                        <br><br>
+                        <select class="selects" id="substance6" name="substance6">
+                            <option value="">Substance 6 - Choose Number of Rats</option>
+                            <option value="option1">Option 1</option>
+                            <option value="option2">Option 2</option>
+                            <option value="option3">Option 3</option>
+                        </select>
+                        <br><br>
+                        <select class="selects" id="substance7" name="substance7">
+                            <option value="">Substance 7 - Choose Number of Rats</option>
+                            <option value="option1">Option 1</option>
+                            <option value="option2">Option 2</option>
+                            <option value="option3">Option 3</option>
+                        </select>
+                        <br><br>
+                        <select class="selects" id="substance8" name="substance8">
+                            <option value="">Substance 8 - Choose Number of Rats</option>
+                            <option value="option1">Option 1</option>
+                            <option value="option2">Option 2</option>
+                            <option value="option3">Option 3</option>
+                        </select>
+                        <br><br>
+                        <select class="selects" id="substance9" name="substance9">
+                            <option value="">Substance 9 - Choose Number of Rats</option>
+                            <option value="option1">Option 1</option>
+                            <option value="option2">Option 2</option>
+                            <option value="option3">Option 3</option>
+                        </select>
+                        <br><br>
+                        <select class="selects" id="substance10" name="substance10">
+                            <option value="">Substance 10 - Choose Number of Rats</option>
+                            <option value="option1">Option 1</option>
+                            <option value="option2">Option 2</option>
+                            <option value="option3">Option 3</option>
+                        </select>
+                    </div>
+                </div>
+                <br><br>
+                <input class="submitButton" type="submit" value="Submit">
+            </form>
+        </div>
+    </section>
+</main>
 </body>
 </html>

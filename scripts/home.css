@@ -1,28 +1,21 @@
 .info-box{
     background-image: url("images/backgroundLogin.svg");
     background-size: cover;
-    opacity: 0.8;
-    filter: brightness(1.7);
+    filter: brightness(1.5);
     position:absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     margin: auto;
-    width: 70%;
-    height: 70%;
+    width: 80%;
+    height: 80%;
 }
 
 .info-box-content{
     padding-top: 100px;
     display: flex;
     justify-content: space-around;
-}
-
-.welcomeTitle{
-    margin-top: 80px;
-    text-align: center;
-    font-size: 35px;
 }
 
 .leftButton, .rightButton{

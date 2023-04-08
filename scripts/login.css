@@ -10,8 +10,8 @@
     left: 0;
     right: 0;
     margin: auto;
-    width: 70%;
-    height: 70%;
+    width: 80%;
+    height: 80%;
 }
 
 .info-box-image{
@@ -80,10 +80,4 @@
 
 .loginButton:hover{
     cursor: pointer;
-}
-
-.icon{
-    width: 15px;
-    height: 15px;
-    margin-right: 8px;
 }
