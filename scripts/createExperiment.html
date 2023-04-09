@@ -12,19 +12,19 @@
     <section>
         <div class="info-box">
             <div>
-                <img src="images/back.png" class="icon"><a class="backLink" href="home.html">Go Back</a>
+                <img src="images/back.png" class="icon" id="back"><a class="backLink" href="home.html">Go Back</a>
             </div>
             <div class="homeTitle">
                 <h1 class="mainTitle"><span class="underline">C</span>reate Experiment</h1>
             </div>
-            <form method="post" action="createExperiment.php">
+            <form method="post" action="createExperimentPost.php">
                 <div class="info-box-content">
                     <div class="leftColumn">
-                        <textarea class="descriptionTextArea" name="description" placeholder=" Description" cols="40" rows="5" required></textarea>
+                        <img src="images/description.png" class="icon"><textarea class="descriptionTextArea" name="description" placeholder=" Description" cols="40" rows="5" required></textarea>
                         <br><br>
-                        <img src="images/research.png" class="icon"><input class="createExperimentInput" type="text" name="researcher" placeholder=" Researcher" required>
+                        <img src="images/researcher.png" class="icon"><input class="createExperimentInput" type="text" name="researcher" placeholder=" Researcher" required>
                         <br><br>
-                        <img src="images/calendar.png" class="icon"><input class="createExperimentInput" type="date" name="date" placeholder=" Date of Start of Experiment" required>
+                        <img src="images/calendar.png" class="icon"><input class="createExperimentInput" type="datetime-local" name="date" placeholder=" Date of Start of Experiment" required>
                     </div>
                     <div class="rightColumn">
                         <img src="images/numbers.png" class="icon"><input class="createExperimentInput" type="number" min="1" max="100" name="ratsNumber" placeholder=" Rats Number" required>
@@ -40,70 +40,70 @@
                 </div>
                 <div class="info-box-content">
                     <div class="dropdowns">
-                        <select class="selects" id="room1" name="room1">
+                        <img src="images/smell.png" class="icon"><select class="selects" id="room1" name="room1">
                             <option value="">Room 1 - Choose Odour</option>
                             <option value="option1">Option 1</option>
                             <option value="option2">Option 2</option>
                             <option value="option3">Option 3</option>
                         </select>
                         <br><br>
-                        <select class="selects" id="room2" name="room2">
+                        <img src="images/smell.png" class="icon"><select class="selects" id="room2" name="room2">
                             <option value="">Room 2 - Choose Odour</option>
                             <option value="option1">Option 1</option>
                             <option value="option2">Option 2</option>
                             <option value="option3">Option 3</option>
                         </select>
                         <br><br>
-                        <select class="selects" id="room3" name="room3">
+                        <img src="images/smell.png" class="icon"><select class="selects" id="room3" name="room3">
                             <option value="">Room 3 - Choose Odour</option>
                             <option value="option1">Option 1</option>
                             <option value="option2">Option 2</option>
                             <option value="option3">Option 3</option>
                         </select>
                         <br><br>
-                        <select class="selects" id="room4" name="room4">
+                        <img src="images/smell.png" class="icon"><select class="selects" id="room4" name="room4">
                             <option value="">Room 4 - Choose Odour</option>
                             <option value="option1">Option 1</option>
                             <option value="option2">Option 2</option>
                             <option value="option3">Option 3</option>
                         </select>
                         <br><br>
-                        <select class="selects" id="room5" name="room5">
+                        <img src="images/smell.png" class="icon"><select class="selects" id="room5" name="room5">
                             <option value="">Room 5 - Choose Odour</option>
                             <option value="option1">Option 1</option>
                             <option value="option2">Option 2</option>
                             <option value="option3">Option 3</option>
                         </select>
                         <br><br>
-                        <select class="selects" id="room6" name="room6">
+                        <img src="images/smell.png" class="icon"><select class="selects" id="room6" name="room6">
                             <option value="">Room 6 - Choose Odour</option>
                             <option value="option1">Option 1</option>
                             <option value="option2">Option 2</option>
                             <option value="option3">Option 3</option>
                         </select>
                         <br><br>
-                        <select class="selects" id="room7" name="room1">
+                        <img src="images/smell.png" class="icon"><select class="selects" id="room7" name="room1">
                             <option value="">Room 7 - Choose Odour</option>
                             <option value="option1">Option 1</option>
                             <option value="option2">Option 2</option>
                             <option value="option3">Option 3</option>
                         </select>
                         <br><br>
-                        <select class="selects" id="room8" name="room8">
+                        <img src="images/smell.png" class="icon"><select class="selects" id="room8" name="room8">
                             <option value="">Room 8 - Choose Odour</option>
                             <option value="option1">Option 1</option>
                             <option value="option2">Option 2</option>
                             <option value="option3">Option 3</option>
                         </select>
                         <br><br>
-                        <select class="selects" id="room9" name="room9">
+                        <img src="images/smell.png" class="icon"><select class="selects" id="room9" name="room9">
                             <option value="">Room 9 - Choose Odour</option>
                             <option value="option1">Option 1</option>
                             <option value="option2">Option 2</option>
                             <option value="option3">Option 3</option>
                         </select>
                         <br><br>
-                        <select class="selects" id="room10" name="room10">
+                        <img src="images/smell.png" class="icon"><select class="selects" id="room10" name="room10">
                             <option value="">Room 10 - Choose Odour</option>
                             <option value="option1">Option 1</option>
                             <option value="option2">Option 2</option>
@@ -111,75 +111,16 @@
                         </select>
                     </div>
                     <div class="dropdowns">
-                        <select class="selects" id="substance1" name="substance1">
-                            <option value="">Substance 1 - Choose Number of Rats</option>
-                            <option value="option1">Option 1</option>
-                            <option value="option2">Option 2</option>
-                            <option value="option3">Option 3</option>
-                        </select>
-                        <br><br>
-                        <select class="selects" id="substance2" name="substance2">
-                            <option value="">Substance 2 - Choose Number of Rats</option>
-                            <option value="option1">Option 1</option>
-                            <option value="option2">Option 2</option>
-                            <option value="option3">Option 3</option>
-                        </select>
-                        <br><br>
-                        <select class="selects" id="substance3" name="substance3">
-                            <option value="">Substance 3 - Choose Number of Rats</option>
-                            <option value="option1">Option 1</option>
-                            <option value="option2">Option 2</option>
-                            <option value="option3">Option 3</option>
-                        </select>
-                        <br><br>
-                        <select class="selects" id="substance4" name="substance4">
-                            <option value="">Substance 4 - Choose Number of Rats</option>
-                            <option value="option1">Option 1</option>
-                            <option value="option2">Option 2</option>
-                            <option value="option3">Option 3</option>
-                        </select>
-                        <br><br>
-                        <select class="selects" id="substance5" name="substance5">
-                            <option value="">Substance 5 - Choose Number of Rats</option>
-                            <option value="option1">Option 1</option>
-                            <option value="option2">Option 2</option>
-                            <option value="option3">Option 3</option>
-                        </select>
-                        <br><br>
-                        <select class="selects" id="substance6" name="substance6">
-                            <option value="">Substance 6 - Choose Number of Rats</option>
-                            <option value="option1">Option 1</option>
-                            <option value="option2">Option 2</option>
-                            <option value="option3">Option 3</option>
-                        </select>
-                        <br><br>
-                        <select class="selects" id="substance7" name="substance7">
-                            <option value="">Substance 7 - Choose Number of Rats</option>
-                            <option value="option1">Option 1</option>
-                            <option value="option2">Option 2</option>
-                            <option value="option3">Option 3</option>
-                        </select>
-                        <br><br>
-                        <select class="selects" id="substance8" name="substance8">
-                            <option value="">Substance 8 - Choose Number of Rats</option>
-                            <option value="option1">Option 1</option>
-                            <option value="option2">Option 2</option>
-                            <option value="option3">Option 3</option>
-                        </select>
-                        <br><br>
-                        <select class="selects" id="substance9" name="substance9">
-                            <option value="">Substance 9 - Choose Number of Rats</option>
-                            <option value="option1">Option 1</option>
-                            <option value="option2">Option 2</option>
-                            <option value="option3">Option 3</option>
-                        </select>
-                        <br><br>
-                        <select class="selects" id="substance10" name="substance10">
-                            <option value="">Substance 10 - Choose Number of Rats</option>
-                            <option value="option1">Option 1</option>
-                            <option value="option2">Option 2</option>
-                            <option value="option3">Option 3</option>
-                        </select>
+                        <img src="images/substance.png" class="icon"><select class="selects" name="substance">
+                            <option value="">Substance 1 - Choose Number of Rats Injected</option>
+                            <option value="option1">10</option>
+                            <option value="option2">20</option>
+                            <option value="option3">30</option>
+                            <option value="option3">40</option>
+                            <option value="option3">50</option>
+                            <option value="option3">75</option>
+                            <option value="option3">100</option>
+                    </select>
                     </div>
                 </div>
                 <br><br>

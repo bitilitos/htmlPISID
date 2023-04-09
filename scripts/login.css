@@ -10,8 +10,8 @@
     left: 0;
     right: 0;
     margin: auto;
-    width: 80%;
-    height: 80%;
+    width: 90%;
+    height: 90%;
 }
 
 .info-box-image{
@@ -35,10 +35,10 @@
     position:absolute;
     top: 0;
     bottom: 0;
-    left: 550px;
+    left: 561px;
     margin: auto;
     background-color: rgba(255, 255, 255, 0.3);
-    width: 570px;
+    width: 590px;
 }
 
 .info-box-form-content{
