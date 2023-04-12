@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
 
     // Check the login credentials against the database
-    $sql = "SELECT current_role()";;
+    $sql = "SELECT current_role()";
     $result = mysqli_query($conn, $sql);
 
     if (!$result) {
