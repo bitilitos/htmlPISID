@@ -232,3 +232,9 @@ if ($conn->query($sql0) === TRUE) {
 } else {
     die("Database query failed.");
 }
+
+header('Location: home.html');
+exit();
+
+// Close database connection
+mysqli_close($conn);

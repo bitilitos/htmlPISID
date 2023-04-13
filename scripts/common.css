@@ -19,3 +19,21 @@ body {
     height: 19px;
     margin-right: 8px;
 }
+
+.backLink{
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    width: 70px;
+    background-color: #5F5F5F;
+    padding: 10px;
+    border-radius: 5px;
+    position: absolute;
+    top: 10px;
+}
+
+#back{
+    margin-top: 20px;
+    margin-left: 5px;
+}
