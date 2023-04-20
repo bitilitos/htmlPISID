@@ -30,12 +30,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <?php include 'experimentManagement.php';?>
-                                <td>
-                                    <a href=""><img src="images/touchscreen.png" class="icon"></a>
-                                </td>
-                            </tr>
+                            <td><?php include 'experimentManagement.php'; ?>
                         </tbody>
                     </table>
                 </div>
