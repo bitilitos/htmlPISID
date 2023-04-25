@@ -8,8 +8,8 @@ $dbname = "rats";
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
 // Check the connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+if (mysqli_connect_errno()) {
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
 
 // Process the login form data

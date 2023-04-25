@@ -30,7 +30,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <td><?php include 'experimentManagement.php'; ?>
+                            <?php
+                            include 'experimentManagement.php';
+                            getID();?>
                         </tbody>
                     </table>
                 </div>
