@@ -1,0 +1,56 @@
+.info-box{
+    background-image: url("images/backgroundLogin.svg");
+    background-size: cover;
+    filter: brightness(1.5);
+    position:absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 90%;
+    height: 90%;
+    overflow: scroll;
+}
+
+.info-box-content{
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.info-box-table, td, th{
+    border: 1px solid #5F5F5F;
+}
+
+table{
+    width: 1000px;
+    padding: 10px;
+    border-collapse: collapse;
+}
+
+#table1{
+    margin-top: 30px;
+}
+
+#table2, #table3{
+    text-align: center;
+}
+
+.tdicon{
+    padding-bottom: 5px;
+    padding-top: 5px;
+    text-align: center;
+    width: 30px;
+    border: none;
+}
+
+.tdtitle{
+    width:350px;
+    font-weight: bold;
+}
+
+.iconManagement{
+    width: 19px;
+    height: 19px;
+}

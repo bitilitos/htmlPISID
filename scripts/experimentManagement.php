@@ -27,6 +27,7 @@ function getID() {
         echo "<td>" . $row['IDExperiment'] . "</td>";
         $id = $row['IDExperiment'];
         echo "<td><a href='insideExperimentManagementHTML.php?id=$id'><img src='images/touchscreen.png' class='icon'></a></td>";
+        echo "<td><a href='insideExperimentManagementHTML.php?id=$id'><img src='images/trash.png' class='icon'></a></td>";
         echo "</tr>";
     }
 }

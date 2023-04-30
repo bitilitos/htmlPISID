@@ -144,6 +144,35 @@ function getInjectedRatsNumber() {
     }
 }
 
+
+function deleteExperiment() {
+    global $conn;
+    global $dbname;
+    global $id;
+
+    $sqlExperiment = "DELETE $dbname.experiment.IDExperiment FROM  WHERE id = $id";
+    $sqlOdours = "DELETE $dbname.experimentodours.IDExperiment FROM  WHERE id = $id";
+    $sqlSubstances = "DELETE $dbname.experimentsubstances.IDExperiment FROM  WHERE id = $id";
+
+    if ($conn->query($sqlExperiment) === TRUE) {
+        echo "Row deleted successfully.";
+    } else {
+        echo "Error deleting row: " . $conn->error;
+    }
+
+    if ($conn->query($sqlOdours) === TRUE) {
+        echo "Row deleted successfully.";
+    } else {
+        echo "Error deleting row: " . $conn->error;
+    }
+
+    if ($conn->query($sqlSubstances) === TRUE) {
+        echo "Row deleted successfully.";
+    } else {
+        echo "Error deleting row: " . $conn->error;
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -153,7 +182,7 @@ function getInjectedRatsNumber() {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Experiment Management</title>
     <link rel="stylesheet" href="common.css">
-    <link rel="stylesheet" href="experimentManagement.css">
+    <link rel="stylesheet" href="insideExperimentManagement.css">
     <?php include 'experimentManagement.php';?>
 </head>
 <body>
@@ -167,76 +196,90 @@ function getInjectedRatsNumber() {
                 <h1 class="mainTitle"><span class="underline">E</span>xperiment Management</h1>
             </div>
             <div class="info-box-content">
-                <table class="info-box-table">
+                <table class="info-box-table" id="table1">
                     <tbody>
-                    <tr>
-                        <td>Description</td>
-                        <?php getDescription();?>
-                    </tr>
-                    <tr>
-                        <td>Researcher</td>
-                        <?php getResearcher();?>
-                    </tr>
-                    <tr>
-                        <td>Date of Start of Experiment</td>
-                        <?php getDateHour();?>
-                    </tr>
-                    <tr>
-                        <td>Rats Number</td>
-                        <?php getRatsNumber();?>
-                    </tr>
-                    <tr>
-                        <td>Rats Limit Per Room</td>
-                        <?php getRatsRoomLimit();?>
-                    </tr>
-                    <tr>
-                        <td>Seconds Without Movement</td>
-                        <?php getSecondsWithoutMovement();?>
-                    </tr>
-                    <tr>
-                        <td>Ideal Temperature</td>
-                        <?php getIdealTemperature();?>
-                    </tr>
-                    <tr>
-                        <td>Varition Maximum Temperature</td>
-                        <?php getVaritionMaximumTemperature();?>
-                    </tr>
+                        <tr>
+                            <td class="tdicon"><img src="images/description.png" class="iconManagement"></td>
+                            <td class="tdtitle">Description</td>
+                            <?php getDescription();?>
+                        </tr>
+                        <tr>
+                            <td class="tdicon"><img src="images/researcher.png" class="iconManagement"></td>
+                            <td class="tdtitle">Researcher</td>
+                            <?php getResearcher();?>
+                        </tr>
+                        <tr>
+                            <td class="tdicon"><img src="images/calendar.png" class="iconManagement"></td>
+                            <td class="tdtitle">Date of Start of Experiment</td>
+                            <?php getDateHour();?>
+                        </tr>
+                        <tr>
+                            <td class="tdicon"><img src="images/numbers.png" class="iconManagement"></td>
+                            <td class="tdtitle">Rats Number</td>
+                            <?php getRatsNumber();?>
+                        </tr>
+                        <tr>
+                            <td class="tdicon"><img src="images/rat.png" class="iconManagement"></td>
+                            <td class="tdtitle">Rats Limit Per Room</td>
+                            <?php getRatsRoomLimit();?>
+                        </tr>
+                        <tr>
+                            <td class="tdicon"><img src="images/hand.png" class="iconManagement"></td>
+                            <td class="tdtitle">Seconds Without Movement</td>
+                            <?php getSecondsWithoutMovement();?>
+                        </tr>
+                        <tr>
+                            <td class="tdicon"><img src="images/thermometer.png" class="iconManagement"></td>
+                            <td class="tdtitle">Ideal Temperature</td>
+                            <?php getIdealTemperature();?>
+                        </tr>
+                        <tr>
+                            <td class="tdicon"><img src="images/variation.png" class="iconManagement"></td>
+                            <td class="tdtitle">Varition Maximum Temperature</td>
+                            <?php getVaritionMaximumTemperature();?>
+                        </tr>
                     </tbody>
                 </table>
             </div>
-            <br><br>
+            <br>
             <div class="info-box-content">
-                <table class="info-box-table">
+                <table class="info-box-table" id="table2">
                     <thead>
                         <tr>
-                            <th>Room</th>
+                            <th class="tdicon"><img src="images/smell.png" class="iconManagement"></th>
+                            <th class="tdtitle">Room</th>
                             <th>Odour Code</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
+                            <td class="tdicon"></td>
                             <?php getRooms();?>
                             <?php getOdours();?>
                         </tr>
                     </tbody>
                 </table>
             </div>
+            <br>
             <div class="info-box-content">
-                <table class="info-box-table">
+                <table class="info-box-table" id="table3">
                     <thead>
-                    <tr>
-                        <th>Substance Code</th>
-                        <th>Rats Number</th>
-                    </tr>
+                        <tr>
+                            <th class="tdicon"><img src="images/substance.png" class="iconManagement"></th>
+                            <th class="tdtitle">Substance Code</th>
+                            <th>Rats Number</th>
+                        </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <?php getSubstances();?>
-                        <?php getInjectedRatsNumber();?>
-                    </tr>
+                        <tr>
+                            <td class="tdicon"></td>
+                            <?php getSubstances();?>
+                            <?php getInjectedRatsNumber();?>
+                        </tr>
                     </tbody>
                 </table>
             </div>
+            <br>
         </div>
     </section>
 </main>
