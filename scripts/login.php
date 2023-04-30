@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else if (mysqli_num_rows($result) == 1) {
         // Redirect to the home page or the dashboard
         echo "Login successful.";
-        header('Location: home.html');
+        header('Location: home.php');
         exit();
     } else {
         // Display an error message

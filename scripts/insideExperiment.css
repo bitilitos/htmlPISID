@@ -54,3 +54,31 @@ table{
     width: 19px;
     height: 19px;
 }
+
+.deleteExperiment{
+    color: white;
+    background-color: #54516B;
+    width: 250px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    float: right;
+    margin-right: 7%;
+    margin-bottom: 5%;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.endExperiment{
+    color: white;
+    background-color: #4B5859;
+    width: 250px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    float: right;
+    margin-right: 7%;
+    margin-bottom: 5%;
+    font-size: 18px;
+    cursor: pointer;
+}

@@ -12,7 +12,7 @@
     <section>
         <div class="info-box">
             <div>
-                <img src="images/back.png" class="icon" id="back"><a class="backLink" href="home.html">Go Back</a>
+                <img src="images/back.png" class="icon" id="back"><a class="backLink" href="home.php">Go Back</a>
             </div>
             <div class="homeTitle">
                 <h1 class="mainTitle"><span class="underline">E</span>xperiment Management</h1>
@@ -27,7 +27,6 @@
                             <tr>
                                 <th>ID Experiment</th>
                                 <th>View Experiment</th>
-                                <th>Delete Experiment</th>
                             </tr>
                         </thead>
                         <tbody>

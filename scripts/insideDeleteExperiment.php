@@ -149,15 +149,9 @@ function deleteExperiment() {
     global $dbname;
     global $id;
 
-    $sqlExperiment = "DELETE FROM  $dbname.experiment.IDExperiment WHERE id = $id";
-    $sqlOdours = "DELETE FROM $dbname.experimentodours.IDExperiment WHERE id = $id";
-    $sqlSubstances = "DELETE FROM $dbname.experimentsubstances.IDExperiment WHERE id = $id";
-
-    if ($conn->query($sqlExperiment) === TRUE) {
-        echo "Row deleted successfully.";
-    } else {
-        echo "Error deleting row: " . $conn->error;
-    }
+    $sqlOdours = "DELETE FROM $dbname.experimentodours WHERE IDExperiment = $id";
+    $sqlSubstances = "DELETE FROM $dbname.experimentsubstances WHERE IDExperiment = $id";
+    $sqlExperiment = "DELETE FROM  $dbname.experiment WHERE IDExperiment = $id";
 
     if ($conn->query($sqlOdours) === TRUE) {
         echo "Row deleted successfully.";
@@ -170,8 +164,18 @@ function deleteExperiment() {
     } else {
         echo "Error deleting row: " . $conn->error;
     }
+
+    if ($conn->query($sqlExperiment) === TRUE) {
+        echo "Row deleted successfully.";
+    } else {
+        echo "Error deleting row: " . $conn->error;
+    }
+    header('Location: experimentManagementHTML.php');
 }
 
+if (isset($_POST['delete'])) {
+    deleteExperiment();
+}
 ?>
 
 <!DOCTYPE html>
@@ -181,7 +185,7 @@ function deleteExperiment() {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Experiment Management</title>
     <link rel="stylesheet" href="common.css">
-    <link rel="stylesheet" href="insideExperimentManagement.css">
+    <link rel="stylesheet" href="insideExperiment.css">
     <?php include 'experimentManagement.php';?>
 </head>
 <body>
@@ -278,9 +282,12 @@ function deleteExperiment() {
                     </tbody>
                 </table>
             </div>
-            <br>
+            <br><br>
             <div>
-                <button onclick="<?php deleteExperiment();?>">Delete</button>
+                <form method="POST">
+                    <input type="hidden" name="id" value="<?php echo $id; ?>">
+                    <input type="submit" name="delete" class="deleteExperiment" value="Delete Experiment">
+                </form>
             </div>
         </div>
     </section>

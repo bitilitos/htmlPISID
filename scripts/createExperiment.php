@@ -233,7 +233,7 @@ if ($conn->query($sql0) === TRUE) {
     die("Database query failed.");
 }
 
-header('Location: home.html');
+header('Location: home.php');
 exit();
 
 // Close database connection
