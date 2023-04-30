@@ -22,8 +22,9 @@ function getActiveExperiment() {
     global $dbname;
     $sql = "SELECT $dbname.experiment.IDExperiment FROM experiment WHERE IsActive = 1";
     $result = mysqli_query($conn, $sql);
-    $id = mysqli_fetch_assoc($result);
-    if (isset($id)) {
+    $row = mysqli_fetch_assoc($result);
+    if (!empty($row)) {
+        $id = $row['IDExperiment'];
         echo "<a class='endExperiment' href='insideEndExperiment.php?id=$id'><br>End Experiment</a>";
     } else {
         echo "<a class='endExperiment' href='#' style='cursor: default'><br>No Active Experiment</a>";
