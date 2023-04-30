@@ -20,20 +20,18 @@ if (mysqli_connect_errno()) {
 global $id;
 $id = $_GET['id'];
 
-$endReason = $_POST['endReason'];
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $endReason = $_POST['endReason'];
 
-$sql = "UPDATE $dbname.experiment 
-        SET IsActive = 0 AND IDExperimentEndReason = '$endReason'
-        WHERE IDExperiment = '$id'";
+    $sql = "UPDATE $dbname.experiment SET IsActive = 0, IDExperimentEndReason = '$endReason' WHERE IDExperiment = '$id'";
 
-$result = mysqli_query($conn, $sql);
+    $result = mysqli_query($conn, $sql);
 
-if (!empty($result)) {
-    header('Location: home.php');
+    if (!empty($result)) {
+        header('Location: home.php');
+        exit();
+    }
 }
-
-// Close database connection
-mysqli_close($conn);
 
 ?>
 
@@ -58,7 +56,7 @@ mysqli_close($conn);
                 <h1 class="mainTitle"><span class="underline">E</span>nd Experiment</h1>
             </div>
             <br><br><br>
-            <form method="post" action="endExperiment.php">
+            <form method="post" action="">
                 <div class="info-box-content">
                     <div class="dropdown">
                         <select class="select" id="endReason" name="endReason">
@@ -70,7 +68,6 @@ mysqli_close($conn);
                             <option value="5">Time Limit</option>
                         </select>
                     </div>
-                    <br><br><br><br><br>
                     <div>
                         <input class="submitButton" type="submit" value="Submit">
                     </div>
