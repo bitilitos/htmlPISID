@@ -38,10 +38,24 @@
 
 table{
     margin-top: 30px;
-    width: 350px;
+    width: 600px;
     padding: 10px;
 }
 
 td {
     text-align: center;
+}
+
+.confirmation-window {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 1px solid #000;
+    padding: 20px;
+}
+.confirmation-window h2 {
+    margin-top: 0;
 }

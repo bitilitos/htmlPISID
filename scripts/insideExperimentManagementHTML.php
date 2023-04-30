@@ -144,35 +144,6 @@ function getInjectedRatsNumber() {
     }
 }
 
-
-function deleteExperiment() {
-    global $conn;
-    global $dbname;
-    global $id;
-
-    $sqlExperiment = "DELETE $dbname.experiment.IDExperiment FROM  WHERE id = $id";
-    $sqlOdours = "DELETE $dbname.experimentodours.IDExperiment FROM  WHERE id = $id";
-    $sqlSubstances = "DELETE $dbname.experimentsubstances.IDExperiment FROM  WHERE id = $id";
-
-    if ($conn->query($sqlExperiment) === TRUE) {
-        echo "Row deleted successfully.";
-    } else {
-        echo "Error deleting row: " . $conn->error;
-    }
-
-    if ($conn->query($sqlOdours) === TRUE) {
-        echo "Row deleted successfully.";
-    } else {
-        echo "Error deleting row: " . $conn->error;
-    }
-
-    if ($conn->query($sqlSubstances) === TRUE) {
-        echo "Row deleted successfully.";
-    } else {
-        echo "Error deleting row: " . $conn->error;
-    }
-}
-
 ?>
 
 <!DOCTYPE html>

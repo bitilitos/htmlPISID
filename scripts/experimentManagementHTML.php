@@ -26,8 +26,8 @@
                         <thead>
                             <tr>
                                 <th>ID Experiment</th>
-                                <th>View</th>
-                                <th>Delete</th>
+                                <th>View Experiment</th>
+                                <th>Delete Experiment</th>
                             </tr>
                         </thead>
                         <tbody>
