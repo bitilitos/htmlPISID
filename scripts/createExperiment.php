@@ -19,7 +19,7 @@ $ratsNumber = $_POST['ratsNumber'];
 $ratsLimitPerRoom = $_POST['ratsLimitPerRoom'];
 $secondsWithoutMovement = $_POST['secondsWithoutMovement'];
 $idealTemperature = $_POST['idealTemperature'];
-$varitionMaximumTemperature = $_POST['varitionMaximumTemperature'];
+$variationMaximumTemperature = $_POST['variationMaximumTemperature'];
 $room1 = $_POST['room1'];
 $room2 = $_POST['room2'];
 $room3 = $_POST['room3'];
@@ -62,9 +62,9 @@ $s9 = "MET";
 $s10 = "DOM";
 
 $sql0 = "INSERT INTO experiment (Description, Researcher, DateHour, RatsNumber, RatsRoomLimit,
-        SecondsWithoutMovement, IdealTemperature, VaritionMaximumTemperature)
+        SecondsWithoutMovement, IdealTemperature, VariationMaximumTemperature)
         VALUES ('$description', '$researcher', '$date', '$ratsNumber', '$ratsLimitPerRoom',
-        '$secondsWithoutMovement', '$idealTemperature', '$varitionMaximumTemperature')";
+        '$secondsWithoutMovement', '$idealTemperature', '$variationMaximumTemperature')";
 
 if ($conn->query($sql0) === TRUE) {
     $experiment_id = mysqli_insert_id($conn);

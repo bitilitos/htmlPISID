@@ -90,14 +90,14 @@ function getIdealTemperature() {
     echo "<td>" . $row['IdealTemperature'] . "</td>";
 }
 
-function getVaritionMaximumTemperature() {
+function getVariationMaximumTemperature() {
     global $conn;
     global $dbname;
     global $id;
-    $sql = "SELECT $dbname.experiment.VaritionMaximumTemperature FROM experiment WHERE IDExperiment = " . $id;
+    $sql = "SELECT $dbname.experiment.VariationMaximumTemperature FROM experiment WHERE IDExperiment = " . $id;
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
-    echo "<td>" . $row['VaritionMaximumTemperature'] . "</td>";
+    echo "<td>" . $row['VariationMaximumTemperature'] . "</td>";
 }
 
 function getRooms() {
@@ -238,8 +238,8 @@ if (isset($_POST['delete'])) {
                         </tr>
                         <tr>
                             <td class="tdicon"><img src="images/variation.png" class="iconManagement"></td>
-                            <td class="tdtitle">Varition Maximum Temperature</td>
-                            <?php getVaritionMaximumTemperature();?>
+                            <td class="tdtitle">Variation Maximum Temperature</td>
+                            <?php getVariationMaximumTemperature();?>
                         </tr>
                     </tbody>
                 </table>
