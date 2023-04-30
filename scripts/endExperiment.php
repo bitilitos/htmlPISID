@@ -20,11 +20,17 @@ if (mysqli_connect_errno()) {
 global $id;
 $id = $_GET['id'];
 
+$endReason = $_POST['endReason'];
 
+$sql = "UPDATE $dbname.experiment 
+        SET IsActive = 0 AND IDExperimentEndReason = '$endReason'
+        WHERE IDExperiment = '$id'";
 
+$result = mysqli_query($conn, $sql);
 
-header('Location: home.php');
-exit();
+if (!empty($result)) {
+    header('Location: home.php');
+}
 
 // Close database connection
 mysqli_close($conn);
@@ -57,11 +63,11 @@ mysqli_close($conn);
                     <div class="dropdown">
                         <select class="select" id="endReason" name="endReason">
                             <option value="">Choose Experiment End Reason</option>
-                            <option value="SuccessfulExperiment">Successful Experiment</option>
-                            <option value="InactivityRats">Inactivity of Rats</option>
-                            <option value="TemperatureLimit">Temperature Limit</option>
-                            <option value="TooManyRats">Too many rats in the same room at the same time</option>
-                            <option value="TimeLimit">Time Limit</option>
+                            <option value="1">Successful Experiment</option>
+                            <option value="2">Inactivity of Rats</option>
+                            <option value="3">Temperature Limit</option>
+                            <option value="4">Too many rats in the same room at the same time</option>
+                            <option value="5">Time Limit</option>
                         </select>
                     </div>
                     <br><br><br><br><br>
