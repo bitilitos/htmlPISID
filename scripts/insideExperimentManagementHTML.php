@@ -144,6 +144,34 @@ function getInjectedRatsNumber() {
     }
 }
 
+function deleteExperiment() {
+    global $conn;
+    global $dbname;
+    global $id;
+
+    $sqlExperiment = "DELETE FROM  $dbname.experiment.IDExperiment WHERE id = $id";
+    $sqlOdours = "DELETE FROM $dbname.experimentodours.IDExperiment WHERE id = $id";
+    $sqlSubstances = "DELETE FROM $dbname.experimentsubstances.IDExperiment WHERE id = $id";
+
+    if ($conn->query($sqlExperiment) === TRUE) {
+        echo "Row deleted successfully.";
+    } else {
+        echo "Error deleting row: " . $conn->error;
+    }
+
+    if ($conn->query($sqlOdours) === TRUE) {
+        echo "Row deleted successfully.";
+    } else {
+        echo "Error deleting row: " . $conn->error;
+    }
+
+    if ($conn->query($sqlSubstances) === TRUE) {
+        echo "Row deleted successfully.";
+    } else {
+        echo "Error deleting row: " . $conn->error;
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -251,6 +279,9 @@ function getInjectedRatsNumber() {
                 </table>
             </div>
             <br>
+            <div>
+                <button onclick="<?php deleteExperiment();?>">Delete</button>
+            </div>
         </div>
     </section>
 </main>

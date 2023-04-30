@@ -27,7 +27,7 @@ function getID() {
         echo "<td>" . $row['IDExperiment'] . "</td>";
         $id = $row['IDExperiment'];
         echo "<td><a href='insideExperimentManagementHTML.php?id=$id'><img src='images/touchscreen.png' class='icon'></a></td>";
-        echo "<td><a href='#' onclick='createModal($id)'><img src='images/trash.png' class='icon'></a></td>";
+        echo "<td><a href='#' onclick='<?php createModal($id); ?>'><img src='images/trash.png' class='icon'></a></td>";
         echo "</tr>";
     }
 }
@@ -63,29 +63,3 @@ function createModal($id) {
   ';
 }
 
-function deleteExperiment($id) {
-    global $conn;
-    global $dbname;
-
-    $sqlExperiment = "DELETE FROM  $dbname.experiment.IDExperiment WHERE id = $id";
-    $sqlOdours = "DELETE FROM $dbname.experimentodours.IDExperiment WHERE id = $id";
-    $sqlSubstances = "DELETE FROM $dbname.experimentsubstances.IDExperiment WHERE id = $id";
-
-    if ($conn->query($sqlExperiment) === TRUE) {
-        echo "Row deleted successfully.";
-    } else {
-        echo "Error deleting row: " . $conn->error;
-    }
-
-    if ($conn->query($sqlOdours) === TRUE) {
-        echo "Row deleted successfully.";
-    } else {
-        echo "Error deleting row: " . $conn->error;
-    }
-
-    if ($conn->query($sqlSubstances) === TRUE) {
-        echo "Row deleted successfully.";
-    } else {
-        echo "Error deleting row: " . $conn->error;
-    }
-}
