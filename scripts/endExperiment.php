@@ -4,6 +4,7 @@
 $servername = "localhost";
 $username = "rita";
 $password = "rita";
+$dsn = 'mysql:host=localhost;dbname=rats';
 
 global $dbname;
 $dbname = "rats";
@@ -22,16 +23,24 @@ $id = $_GET['id'];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $endReason = $_POST['endReason'];
+    $pdo = new PDO($dsn, $username, $password);
+    $stmt = $pdo->prepare("CALL spFinishExperiment(:experimentId, :endReason)");
 
-    $sql = "UPDATE $dbname.experiment SET IsActive = 0, IDExperimentEndReason = '$endReason' WHERE IDExperiment = '$id'";
+    // Assign the value of $id to $experimentId
+    $experimentId = $id;
 
-    $result = mysqli_query($conn, $sql);
+    // Bind the parameter values
+    $stmt->bindParam(':experimentId', $experimentId, PDO::PARAM_INT);
+    $stmt->bindParam(':endReason', $endReason, PDO::PARAM_INT);
 
-    if (!empty($result)) {
-        header('Location: home.php');
-        exit();
-    }
+    $stmt->execute();
+
+    header('Location: home.php');
+    exit();
 }
+
+// Close database connection
+mysqli_close($conn);
 
 ?>
 
@@ -68,6 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <option value="5">Time Limit</option>
                         </select>
                     </div>
+                    <br><br><br><br><br>
                     <div>
                         <input class="submitButton" type="submit" value="Submit">
                     </div>

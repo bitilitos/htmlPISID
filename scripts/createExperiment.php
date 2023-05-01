@@ -4,6 +4,7 @@ $servername = "localhost";
 $username = "rita";
 $password = "rita";
 $dbname = "rats";
+$dsn = 'mysql:host=localhost;dbname=rats';
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
@@ -61,169 +62,284 @@ $s8 = "DIM";
 $s9 = "MET";
 $s10 = "DOM";
 
-$sql0 = "INSERT INTO experiment (Description, Researcher, DateHour, RatsNumber, RatsRoomLimit,
-        SecondsWithoutMovement, IdealTemperature, VariationMaximumTemperature)
-        VALUES ('$description', '$researcher', '$date', '$ratsNumber', '$ratsLimitPerRoom',
-        '$secondsWithoutMovement', '$idealTemperature', '$variationMaximumTemperature')";
+$pdo = new PDO($dsn, $username, $password);
 
-if ($conn->query($sql0) === TRUE) {
-    $experiment_id = mysqli_insert_id($conn);
+// Prepare the stored procedure call
+$stmt = $pdo->prepare("CALL spCreateExperiment(:description, :researcher, :ratsNumber, :ratsLimitPerRoom, :secondsWithoutMovement, :idealTemperature, :variationMaximumTemperature, :date)");
 
+// Bind the parameter values
+$stmt->bindParam(':description', $description, PDO::PARAM_STR);
+$stmt->bindParam(':researcher', $researcher, PDO::PARAM_STR);
+$stmt->bindParam(':date', $date, PDO::PARAM_STR);
+$stmt->bindParam(':ratsNumber', $ratsNumber, PDO::PARAM_INT);
+$stmt->bindParam(':ratsLimitPerRoom', $ratsLimitPerRoom, PDO::PARAM_INT);
+$stmt->bindParam(':secondsWithoutMovement', $secondsWithoutMovement, PDO::PARAM_INT);
+$stmt->bindParam(':idealTemperature', $idealTemperature, PDO::PARAM_INT);
+$stmt->bindParam(':variationMaximumTemperature', $variationMaximumTemperature, PDO::PARAM_INT);
+
+// Execute the stored procedure call
+$success = $stmt->execute();
+
+if ($success) {
+    $experiment_id = $pdo->query("SELECT LAST_INSERT_ID()")->fetchColumn();
+    echo "<script>console.log('Experiment ID: " . $experiment_id . "');</script>";
+
+    //Verificar com a Rita qual deve ser o odourCode
     if (!empty($room1)) {
-        $sql1 = "INSERT INTO experimentodours (IDExperiment, Room, OdourCode) VALUES ('$experiment_id', '$r1', '$room1')";
-        if ($conn->query($sql1) === TRUE) {
+        $stmt = $pdo->prepare("CALL spCreateOdour(:experimentId, :room, :odourCode)");
+        $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
+        $stmt->bindParam(':room', $r1, PDO::PARAM_STR);
+        $stmt->bindParam(':odourCode', $room1, PDO::PARAM_INT);
+        $success = $stmt->execute();
+
+        if ($success) {
             echo "Database query succeeded.";
         } else {
             echo "Database query failed.";
         }
     }
     if (!empty($room2)) {
-        $sql2 = "INSERT INTO experimentodours (IDExperiment, Room, OdourCode) VALUES ('$experiment_id', '$r2', '$room2')";
-        if ($conn->query($sql2) === TRUE) {
+        $stmt = $pdo->prepare("CALL spCreateOdour(:experimentId, :room, :odourCode)");
+        $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
+        $stmt->bindParam(':room', $r2, PDO::PARAM_STR);
+        $stmt->bindParam(':odourCode', $room2, PDO::PARAM_INT);
+        $success = $stmt->execute();
+
+        if ($success) {
             echo "Database query succeeded.";
         } else {
             echo "Database query failed.";
         }
     }
     if (!empty($room3)) {
-        $sql3 = "INSERT INTO experimentodours (IDExperiment, Room, OdourCode) VALUES ('$experiment_id', '$r3', '$room3')";
-        if ($conn->query($sql3) === TRUE) {
+        $stmt = $pdo->prepare("CALL spCreateOdour(:experimentId, :room, :odourCode)");
+        $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
+        $stmt->bindParam(':room', $r3, PDO::PARAM_STR);
+        $stmt->bindParam(':odourCode', $room3, PDO::PARAM_INT);
+        $success = $stmt->execute();
+
+        if ($success) {
             echo "Database query succeeded.";
         } else {
             echo "Database query failed.";
         }
     }
     if (!empty($room4)) {
-        $sql4 = "INSERT INTO experimentodours (IDExperiment, Room, OdourCode) VALUES ('$experiment_id', '$r4', '$room4')";
-        if ($conn->query($sql4) === TRUE) {
+        $stmt = $pdo->prepare("CALL spCreateOdour(:experimentId, :room, :odourCode)");
+        $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
+        $stmt->bindParam(':room', $r4, PDO::PARAM_STR);
+        $stmt->bindParam(':odourCode', $room4, PDO::PARAM_INT);
+        $success = $stmt->execute();
+
+        if ($success) {
             echo "Database query succeeded.";
         } else {
             echo "Database query failed.";
         }
     }
     if (!empty($room5)) {
-        $sql5 = "INSERT INTO experimentodours (IDExperiment, Room, OdourCode) VALUES ('$experiment_id', '$r5', '$room5')";
-        if ($conn->query($sql5) === TRUE) {
+        $stmt = $pdo->prepare("CALL spCreateOdour(:experimentId, :room, :odourCode)");
+        $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
+        $stmt->bindParam(':room', $r5, PDO::PARAM_STR);
+        $stmt->bindParam(':odourCode', $room5, PDO::PARAM_INT);
+        $success = $stmt->execute();
+
+        if ($success) {
             echo "Database query succeeded.";
         } else {
             echo "Database query failed.";
         }
     }
     if (!empty($room6)) {
-        $sql6 = "INSERT INTO experimentodours (IDExperiment, Room, OdourCode) VALUES ('$experiment_id', '$r6', '$room6')";
-        if ($conn->query($sql6) === TRUE) {
+        $stmt = $pdo->prepare("CALL spCreateOdour(:experimentId, :room, :odourCode)");
+        $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
+        $stmt->bindParam(':room', $r6, PDO::PARAM_STR);
+        $stmt->bindParam(':odourCode', $room6, PDO::PARAM_INT);
+        $success = $stmt->execute();
+
+        if ($success) {
             echo "Database query succeeded.";
         } else {
             echo "Database query failed.";
         }
     }
     if (!empty($room7)) {
-        $sql7 = "INSERT INTO experimentodours (IDExperiment, Room, OdourCode) VALUES ('$experiment_id', '$r7', '$room7')";
-        if ($conn->query($sql7) === TRUE) {
+        $stmt = $pdo->prepare("CALL spCreateOdour(:experimentId, :room, :odourCode)");
+        $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
+        $stmt->bindParam(':room', $r7, PDO::PARAM_STR);
+        $stmt->bindParam(':odourCode', $room7, PDO::PARAM_INT);
+        $success = $stmt->execute();
+
+        if ($success) {
             echo "Database query succeeded.";
         } else {
             echo "Database query failed.";
         }
     }
     if (!empty($room8)) {
-        $sql8 = "INSERT INTO experimentodours (IDExperiment, Room, OdourCode) VALUES ('$experiment_id', '$r8', '$room8')";
-        if ($conn->query($sql8) === TRUE) {
+        $stmt = $pdo->prepare("CALL spCreateOdour(:experimentId, :room, :odourCode)");
+        $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
+        $stmt->bindParam(':room', $r8, PDO::PARAM_STR);
+        $stmt->bindParam(':odourCode', $room8, PDO::PARAM_INT);
+        $success = $stmt->execute();
+
+        if ($success) {
             echo "Database query succeeded.";
         } else {
             echo "Database query failed.";
         }
     }
     if (!empty($room9)) {
-        $sql9 = "INSERT INTO experimentodours (IDExperiment, Room, OdourCode) VALUES ('$experiment_id', '$r9', '$room9')";
-        if ($conn->query($sql9) === TRUE) {
+        $stmt = $pdo->prepare("CALL spCreateOdour(:experimentId, :room, :odourCode)");
+        $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
+        $stmt->bindParam(':room', $r9, PDO::PARAM_STR);
+        $stmt->bindParam(':odourCode', $room9, PDO::PARAM_INT);
+        $success = $stmt->execute();
+
+        if ($success) {
             echo "Database query succeeded.";
         } else {
             echo "Database query failed.";
         }
     }
     if (!empty($room10)) {
-        $sql10 = "INSERT INTO experimentodours (IDExperiment, Room, OdourCode) VALUES ('$experiment_id', '$r10', '$room10')";
-        if ($conn->query($sql10) === TRUE) {
+        $stmt = $pdo->prepare("CALL spCreateOdour(:experimentId, :room, :odourCode)");
+        $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
+        $stmt->bindParam(':room', $r10, PDO::PARAM_STR);
+        $stmt->bindParam(':odourCode', $room10, PDO::PARAM_INT);
+        $success = $stmt->execute();
+
+        if ($success) {
             echo "Database query succeeded.";
         } else {
             echo "Database query failed.";
         }
     }
     if (!empty($morphine)) {
-        $sql11 = "INSERT INTO experimentsubstances (IDExperiment, SubstanceCode, RatsNumber) VALUES ('$experiment_id', '$s1', '$morphine')";
-        if ($conn->query($sql11) === TRUE) {
+        $stmt = $pdo->prepare("CALL spCreateSubstance(:experimentId, :substance, :ratsNumber)");
+        $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
+        $stmt->bindParam(':substance', $s1, PDO::PARAM_STR);
+        $stmt->bindParam(':ratsNumber', $morphine, PDO::PARAM_INT);
+        $success = $stmt->execute();
+
+        if ($success) {
             echo "Database query succeeded.";
         } else {
             echo "Database query failed.";
         }
     }
     if (!empty($diazepam)) {
-        $sql12 = "INSERT INTO experimentsubstances (IDExperiment, SubstanceCode, RatsNumber) VALUES ('$experiment_id', '$s2', '$diazepam')";
-        if ($conn->query($sql12) === TRUE) {
+        $stmt = $pdo->prepare("CALL spCreateSubstance(:experimentId, :substance, :ratsNumber)");
+        $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
+        $stmt->bindParam(':substance', $s2, PDO::PARAM_STR);
+        $stmt->bindParam(':ratsNumber', $diazepam, PDO::PARAM_INT);
+        $success = $stmt->execute();
+
+        if ($success) {
             echo "Database query succeeded.";
         } else {
             echo "Database query failed.";
         }
     }
     if (!empty($thiocolchicoside)) {
-        $sql13 = "INSERT INTO experimentsubstances (IDExperiment, SubstanceCode, RatsNumber) VALUES ('$experiment_id', '$s3', '$thiocolchicoside')";
-        if ($conn->query($sql13) === TRUE) {
+        $stmt = $pdo->prepare("CALL spCreateSubstance(:experimentId, :substance, :ratsNumber)");
+        $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
+        $stmt->bindParam(':substance', $s3, PDO::PARAM_STR);
+        $stmt->bindParam(':ratsNumber', $thiocolchicoside, PDO::PARAM_INT);
+        $success = $stmt->execute();
+
+        if ($success) {
             echo "Database query succeeded.";
         } else {
             echo "Database query failed.";
         }
     }
     if (!empty($paracetamol)) {
-        $sql14 = "INSERT INTO experimentsubstances (IDExperiment, SubstanceCode, RatsNumber) VALUES ('$experiment_id', '$s4', '$paracetamol')";
-        if ($conn->query($sql14) === TRUE) {
+        $stmt = $pdo->prepare("CALL spCreateSubstance(:experimentId, :substance, :ratsNumber)");
+        $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
+        $stmt->bindParam(':substance', $s4, PDO::PARAM_STR);
+        $stmt->bindParam(':ratsNumber', $paracetamol, PDO::PARAM_INT);
+        $success = $stmt->execute();
+
+        if ($success) {
             echo "Database query succeeded.";
         } else {
             echo "Database query failed.";
         }
     }
     if (!empty($diclofenac)) {
-        $sql15 = "INSERT INTO experimentsubstances (IDExperiment, SubstanceCode, RatsNumber) VALUES ('$experiment_id', '$s5', '$diclofenac')";
-        if ($conn->query($sql15) === TRUE) {
+        $stmt = $pdo->prepare("CALL spCreateSubstance(:experimentId, :substance, :ratsNumber)");
+        $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
+        $stmt->bindParam(':substance', $s4, PDO::PARAM_STR);
+        $stmt->bindParam(':ratsNumber', $diclofenac, PDO::PARAM_INT);
+        $success = $stmt->execute();
+
+        if ($success) {
             echo "Database query succeeded.";
         } else {
             echo "Database query failed.";
         }
     }
     if (!empty($acetylSalicylicAcid)) {
-        $sql16 = "INSERT INTO experimentsubstances (IDExperiment, SubstanceCode, RatsNumber) VALUES ('$experiment_id', '$s6', '$acetylSalicylicAcid')";
-        if ($conn->query($sql16) === TRUE) {
+        $stmt = $pdo->prepare("CALL spCreateSubstance(:experimentId, :substance, :ratsNumber)");
+        $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
+        $stmt->bindParam(':substance', $s6, PDO::PARAM_STR);
+        $stmt->bindParam(':ratsNumber', $acetylSalicylicAcid, PDO::PARAM_INT);
+        $success = $stmt->execute();
+
+        if ($success) {
             echo "Database query succeeded.";
         } else {
             echo "Database query failed.";
         }
     }
     if (!empty($tramadol)) {
-        $sql17 = "INSERT INTO experimentsubstances (IDExperiment, SubstanceCode, RatsNumber) VALUES ('$experiment_id', '$s7', '$tramadol')";
-        if ($conn->query($sql17) === TRUE) {
+        $stmt = $pdo->prepare("CALL spCreateSubstance(:experimentId, :substance, :ratsNumber)");
+        $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
+        $stmt->bindParam(':substance', $s7, PDO::PARAM_STR);
+        $stmt->bindParam(':ratsNumber', $tramadol, PDO::PARAM_INT);
+        $success = $stmt->execute();
+
+        if ($success) {
             echo "Database query succeeded.";
         } else {
             echo "Database query failed.";
         }
     }
     if (!empty($dimenhydrinate)) {
-        $sql18 = "INSERT INTO experimentsubstances (IDExperiment, SubstanceCode, RatsNumber) VALUES ('$experiment_id', '$s8', '$dimenhydrinate')";
-        if ($conn->query($sql18) === TRUE) {
+        $stmt = $pdo->prepare("CALL spCreateSubstance(:experimentId, :substance, :ratsNumber)");
+        $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
+        $stmt->bindParam(':substance', $s8, PDO::PARAM_STR);
+        $stmt->bindParam(':ratsNumber', $dimenhydrinate, PDO::PARAM_INT);
+        $success = $stmt->execute();
+
+        if ($success) {
             echo "Database query succeeded.";
         } else {
             echo "Database query failed.";
         }
     }
     if (!empty($metoclopramide)) {
-        $sql19 = "INSERT INTO experimentsubstances (IDExperiment, SubstanceCode, RatsNumber) VALUES ('$experiment_id', '$s9', '$metoclopramide')";
-        if ($conn->query($sql19) === TRUE) {
+        $stmt = $pdo->prepare("CALL spCreateSubstance(:experimentId, :substance, :ratsNumber)");
+        $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
+        $stmt->bindParam(':substance', $s9, PDO::PARAM_STR);
+        $stmt->bindParam(':ratsNumber', $metoclopramide, PDO::PARAM_INT);
+        $success = $stmt->execute();
+
+        if ($success) {
             echo "Database query succeeded.";
         } else {
             echo "Database query failed.";
         }
     }
     if (!empty($domperidone)) {
-        $sql20 = "INSERT INTO experimentsubstances (IDExperiment, SubstanceCode, RatsNumber) VALUES ('$experiment_id', '$s10', '$domperidone')";
-        if ($conn->query($sql20) === TRUE) {
+        $stmt = $pdo->prepare("CALL spCreateSubstance(:experimentId, :substance, :ratsNumber)");
+        $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
+        $stmt->bindParam(':substance', $s10, PDO::PARAM_STR);
+        $stmt->bindParam(':ratsNumber', $domperidone, PDO::PARAM_INT);
+        $success = $stmt->execute();
+
+        if ($success) {
             echo "Database query succeeded.";
         } else {
             echo "Database query failed.";
