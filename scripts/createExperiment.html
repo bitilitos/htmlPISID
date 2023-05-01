@@ -24,7 +24,7 @@
                         <br><br>
                         <img src="images/researcher.png" class="icon"><input class="createExperimentInput" type="text" name="researcher" placeholder=" Researcher" required>
                         <br><br>
-                        <img src="images/calendar.png" class="icon"><input class="createExperimentInput" type="datetime-local" name="date" placeholder=" Date of Start of Experiment" required>
+                        <img src="images/calendar.png" class="icon"><input class="createExperimentInput" id="datetime" type="datetime-local" min="" name="date" placeholder=" Date of Start of Experiment" required>
                     </div>
                     <div class="rightColumn">
                         <img src="images/numbers.png" class="icon"><input class="createExperimentInput" type="number" min="1" max="100" name="ratsNumber" placeholder=" Rats Number" required>
@@ -230,3 +230,10 @@
 </main>
 </body>
 </html>
+
+<script>
+    const now = new Date();
+    const timezoneOffset = now.getTimezoneOffset() * 60000; // Offset in milliseconds
+    const minDate = new Date(now - timezoneOffset).toISOString().slice(0, 16);
+    document.getElementById("datetime").setAttribute("min", minDate);
+</script>

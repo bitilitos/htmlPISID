@@ -100,47 +100,33 @@ function getVariationMaximumTemperature() {
     echo "<td>" . $row['VariationMaximumTemperature'] . "</td>";
 }
 
-function getRooms() {
+function getRoomsOdours() {
     global $conn;
     global $dbname;
     global $id;
-    $sqlRoom = "SELECT $dbname.experimentodours.Room FROM experimentodours WHERE IDExperiment = " . $id;
-    $resultRoom = mysqli_query($conn, $sqlRoom);
-    while ($row = mysqli_fetch_array($resultRoom)) {
+    $sql = "SELECT $dbname.experimentodours.OdourCode, $dbname.experimentodours.Room FROM experimentodours WHERE IDExperiment = " . $id;
+    $result = mysqli_query($conn, $sql);
+    while ($row = mysqli_fetch_array($result)) {
+        echo "<tr>";
+        echo "<td class='tdicon'></td>";
         echo "<td>" . $row['Room'] . "</td>";
-    }
-}
-
-function getOdours() {
-    global $conn;
-    global $dbname;
-    global $id;
-    $sqlOdour = "SELECT $dbname.experimentodours.OdourCode FROM experimentodours WHERE IDExperiment = " . $id;
-    $resultOdour = mysqli_query($conn, $sqlOdour);
-    while ($row = mysqli_fetch_array($resultOdour)) {
         echo "<td>" . $row['OdourCode'] . "</td>";
+        echo "</tr>";
     }
 }
 
-function getSubstances() {
+function getSubstancesRatsNumber() {
     global $conn;
     global $dbname;
     global $id;
-    $sqlRoom = "SELECT $dbname.experimentsubstances.SubstanceCode FROM experimentsubstances WHERE IDExperiment = " . $id;
-    $resultRoom = mysqli_query($conn, $sqlRoom);
-    while ($row = mysqli_fetch_array($resultRoom)) {
+    $sql = "SELECT $dbname.experimentsubstances.SubstanceCode, $dbname.experimentsubstances.RatsNumber FROM experimentsubstances WHERE IDExperiment = " . $id;
+    $result = mysqli_query($conn, $sql);
+    while ($row = mysqli_fetch_array($result)) {
+        echo "<tr>";
+        echo "<td class='tdicon'></td>";
         echo "<td>" . $row['SubstanceCode'] . "</td>";
-    }
-}
-
-function getInjectedRatsNumber() {
-    global $conn;
-    global $dbname;
-    global $id;
-    $sqlOdour = "SELECT $dbname.experimentsubstances.RatsNumber FROM experimentsubstances WHERE IDExperiment = " . $id;
-    $resultOdour = mysqli_query($conn, $sqlOdour);
-    while ($row = mysqli_fetch_array($resultOdour)) {
         echo "<td>" . $row['RatsNumber'] . "</td>";
+        echo "</tr>";
     }
 }
 
@@ -228,11 +214,7 @@ function endExperiment() {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="tdicon"></td>
-                            <?php getRooms();?>
-                            <?php getOdours();?>
-                        </tr>
+                        <?php getRoomsOdours();?>
                     </tbody>
                 </table>
             </div>
@@ -247,11 +229,7 @@ function endExperiment() {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="tdicon"></td>
-                            <?php getSubstances();?>
-                            <?php getInjectedRatsNumber();?>
-                        </tr>
+                        <?php getSubstancesRatsNumber();?>
                     </tbody>
                 </table>
             </div>
