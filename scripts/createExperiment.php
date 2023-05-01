@@ -88,8 +88,8 @@ if ($success) {
     if (!empty($room1)) {
         $stmt = $pdo->prepare("CALL spCreateOdour(:experimentId, :room, :odourCode)");
         $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
-        $stmt->bindParam(':room', $r1, PDO::PARAM_STR);
-        $stmt->bindParam(':odourCode', $room1, PDO::PARAM_INT);
+        $stmt->bindParam(':room', $r1, PDO::PARAM_INT);
+        $stmt->bindParam(':odourCode', $room1, PDO::PARAM_STR);
         $success = $stmt->execute();
 
         if ($success) {
@@ -101,8 +101,8 @@ if ($success) {
     if (!empty($room2)) {
         $stmt = $pdo->prepare("CALL spCreateOdour(:experimentId, :room, :odourCode)");
         $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
-        $stmt->bindParam(':room', $r2, PDO::PARAM_STR);
-        $stmt->bindParam(':odourCode', $room2, PDO::PARAM_INT);
+        $stmt->bindParam(':room', $r2, PDO::PARAM_INT);
+        $stmt->bindParam(':odourCode', $room2, PDO::PARAM_STR);
         $success = $stmt->execute();
 
         if ($success) {
@@ -114,8 +114,8 @@ if ($success) {
     if (!empty($room3)) {
         $stmt = $pdo->prepare("CALL spCreateOdour(:experimentId, :room, :odourCode)");
         $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
-        $stmt->bindParam(':room', $r3, PDO::PARAM_STR);
-        $stmt->bindParam(':odourCode', $room3, PDO::PARAM_INT);
+        $stmt->bindParam(':room', $r3, PDO::PARAM_INT);
+        $stmt->bindParam(':odourCode', $room3, PDO::PARAM_STR);
         $success = $stmt->execute();
 
         if ($success) {
@@ -127,8 +127,8 @@ if ($success) {
     if (!empty($room4)) {
         $stmt = $pdo->prepare("CALL spCreateOdour(:experimentId, :room, :odourCode)");
         $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
-        $stmt->bindParam(':room', $r4, PDO::PARAM_STR);
-        $stmt->bindParam(':odourCode', $room4, PDO::PARAM_INT);
+        $stmt->bindParam(':room', $r4, PDO::PARAM_INT);
+        $stmt->bindParam(':odourCode', $room4, PDO::PARAM_STR);
         $success = $stmt->execute();
 
         if ($success) {
@@ -140,8 +140,8 @@ if ($success) {
     if (!empty($room5)) {
         $stmt = $pdo->prepare("CALL spCreateOdour(:experimentId, :room, :odourCode)");
         $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
-        $stmt->bindParam(':room', $r5, PDO::PARAM_STR);
-        $stmt->bindParam(':odourCode', $room5, PDO::PARAM_INT);
+        $stmt->bindParam(':room', $r5, PDO::PARAM_INT);
+        $stmt->bindParam(':odourCode', $room5, PDO::PARAM_STR);
         $success = $stmt->execute();
 
         if ($success) {
@@ -153,8 +153,8 @@ if ($success) {
     if (!empty($room6)) {
         $stmt = $pdo->prepare("CALL spCreateOdour(:experimentId, :room, :odourCode)");
         $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
-        $stmt->bindParam(':room', $r6, PDO::PARAM_STR);
-        $stmt->bindParam(':odourCode', $room6, PDO::PARAM_INT);
+        $stmt->bindParam(':room', $r6, PDO::PARAM_INT);
+        $stmt->bindParam(':odourCode', $room6, PDO::PARAM_STR);
         $success = $stmt->execute();
 
         if ($success) {
@@ -166,8 +166,8 @@ if ($success) {
     if (!empty($room7)) {
         $stmt = $pdo->prepare("CALL spCreateOdour(:experimentId, :room, :odourCode)");
         $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
-        $stmt->bindParam(':room', $r7, PDO::PARAM_STR);
-        $stmt->bindParam(':odourCode', $room7, PDO::PARAM_INT);
+        $stmt->bindParam(':room', $r7, PDO::PARAM_INT);
+        $stmt->bindParam(':odourCode', $room7, PDO::PARAM_STR);
         $success = $stmt->execute();
 
         if ($success) {
@@ -179,8 +179,8 @@ if ($success) {
     if (!empty($room8)) {
         $stmt = $pdo->prepare("CALL spCreateOdour(:experimentId, :room, :odourCode)");
         $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
-        $stmt->bindParam(':room', $r8, PDO::PARAM_STR);
-        $stmt->bindParam(':odourCode', $room8, PDO::PARAM_INT);
+        $stmt->bindParam(':room', $r8, PDO::PARAM_INT);
+        $stmt->bindParam(':odourCode', $room8, PDO::PARAM_STR);
         $success = $stmt->execute();
 
         if ($success) {
@@ -192,8 +192,8 @@ if ($success) {
     if (!empty($room9)) {
         $stmt = $pdo->prepare("CALL spCreateOdour(:experimentId, :room, :odourCode)");
         $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
-        $stmt->bindParam(':room', $r9, PDO::PARAM_STR);
-        $stmt->bindParam(':odourCode', $room9, PDO::PARAM_INT);
+        $stmt->bindParam(':room', $r9, PDO::PARAM_INT);
+        $stmt->bindParam(':odourCode', $room9, PDO::PARAM_STR);
         $success = $stmt->execute();
 
         if ($success) {
@@ -205,8 +205,8 @@ if ($success) {
     if (!empty($room10)) {
         $stmt = $pdo->prepare("CALL spCreateOdour(:experimentId, :room, :odourCode)");
         $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
-        $stmt->bindParam(':room', $r10, PDO::PARAM_STR);
-        $stmt->bindParam(':odourCode', $room10, PDO::PARAM_INT);
+        $stmt->bindParam(':room', $r10, PDO::PARAM_INT);
+        $stmt->bindParam(':odourCode', $room10, PDO::PARAM_STR);
         $success = $stmt->execute();
 
         if ($success) {

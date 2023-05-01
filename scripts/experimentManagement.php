@@ -20,7 +20,7 @@ if (mysqli_connect_errno()) {
 function getID() {
     global $conn;
     global $dbname;
-    $sql = "SELECT $dbname.experiment.IDExperiment FROM experiment";
+    $sql = "SELECT $dbname.experiment.IDExperiment FROM experiment WHERE experiment.IDExperimentEndReason is NULL ORDER BY IDExperiment";
     $result = mysqli_query($conn, $sql);
     while ($row = mysqli_fetch_array($result)) {
         echo "<tr>";
