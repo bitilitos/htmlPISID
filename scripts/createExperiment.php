@@ -82,7 +82,6 @@ $success = $stmt->execute();
 
 if ($success) {
     $experiment_id = $pdo->query("SELECT LAST_INSERT_ID()")->fetchColumn();
-    echo "<script>console.log('Experiment ID: " . $experiment_id . "');</script>";
 
     //Verificar com a Rita qual deve ser o odourCode
     if (!empty($room1)) {
