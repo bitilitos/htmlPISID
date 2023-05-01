@@ -4,6 +4,7 @@
 $servername = "localhost";
 $username = "rita";
 $password = "rita";
+$dsn = 'mysql:host=localhost;dbname=rats';
 
 global $dbname;
 $dbname = "rats";
@@ -132,29 +133,22 @@ function getSubstancesRatsNumber() {
 
 function deleteExperiment() {
     global $conn;
-    global $dbname;
+    global $dsn;
+    global $username;
+    global $password;
     global $id;
 
-    $sqlOdours = "DELETE FROM $dbname.experimentodours WHERE IDExperiment = $id";
-    $sqlSubstances = "DELETE FROM $dbname.experimentsubstances WHERE IDExperiment = $id";
-    $sqlExperiment = "DELETE FROM  $dbname.experiment WHERE IDExperiment = $id";
+    $pdo = new PDO($dsn, $username, $password);
 
-    if ($conn->query($sqlOdours) === TRUE) {
-        echo "Row deleted successfully.";
-    } else {
-        echo "Error deleting row: " . $conn->error;
-    }
+    $stmt = $pdo->prepare("CALL spDeleteExperiment(:idExperiment)");
+    $stmt->bindParam(':idExperiment', $id, PDO::PARAM_INT);
+    $success = $stmt->execute();
 
-    if ($conn->query($sqlSubstances) === TRUE) {
-        echo "Row deleted successfully.";
-    } else {
-        echo "Error deleting row: " . $conn->error;
-    }
 
-    if ($conn->query($sqlExperiment) === TRUE) {
-        echo "Row deleted successfully.";
+    if ($success) {
+        echo "Experiment deleted successfully.";
     } else {
-        echo "Error deleting row: " . $conn->error;
+        echo "Error deleting Experiment: " . $conn->error;
     }
     header('Location: experimentManagementHTML.php');
 }
