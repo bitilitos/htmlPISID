@@ -1,9 +1,7 @@
 .info-box{
-    display: flex;
     background-image: url("images/backgroundLogin.svg");
     background-size: cover;
-    opacity: 0.8;
-    filter: brightness(1.4);
+    filter: brightness(1.5);
     position:absolute;
     top: 0;
     bottom: 0;
@@ -12,57 +10,55 @@
     margin: auto;
     width: 90%;
     height: 90%;
+    overflow: scroll;
 }
 
-.info-box-image{
+.info-box-content{
+    display: flex;
+    justify-content: space-around;
+}
+
+.leftColumn{
     flex-direction: row;
+    width: 50%;
+    height: 100vh;
 }
 
 .info-box-image-rat{
-    width:500px;
-    height:489px;
-    position:absolute;
-    top: 0;
-    bottom: 0;
-    margin: auto;
+    width: 100%;
 }
 
-.info-box-form{
+.rightColumn{
     flex-direction: row;
+    background-color: rgba(255, 255, 255, 1.7);
+    width: 50%;
+    height: 100vh;
 }
 
-.info-box-form-box{
-    position:absolute;
-    top: 0;
-    bottom: 0;
-    left: 561px;
-    margin: auto;
-    background-color: rgba(255, 255, 255, 0.3);
-    width: 590px;
+.iconLogin{
+    width: 19px;
+    height: 19px;
+    margin-right: 8px;
+    margin-left: 50px;
 }
-
-.info-box-form-content{
-    position: absolute;
-    top: 50px;
-    left: 20px;
-    margin: auto;
-}
-
 
 .loginTitle{
     font-size: 35px;
+    margin-top: 15%;
+    margin-left: 50px;
 }
 
-.loginInput {
+.loginInput1, .loginInput2 {
     border: none;
-    background-color: rgba(110, 110, 110, 0.3);
-    width: 450px;
+    background-color: rgb(110, 110, 110);
+    width: 80%;
     height: 40px;
     font-size: 18px;
 }
 
-.loginInput:active, .loginInput:hover{
-    border-color:white;
+.loginInput1{
+    margin-top: 15%;
+    margin-bottom: 5%;
 }
 
 .loginButton{
@@ -72,12 +68,8 @@
     height: 50px;
     border: none;
     border-radius: 5px;
-    position: absolute;
-    top: 360px;
-    left: 140px;
-    margin: auto;
-}
-
-.loginButton:hover{
+    font-size: 18px;
     cursor: pointer;
+    margin-left: 35%;
+    margin-top: 15%;
 }
