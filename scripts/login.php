@@ -1,8 +1,11 @@
 <?php
 // Create a database connection
 $servername = "localhost";
-$username = "rita";
-$password = "rita";
+session_start();
+$_SESSION['username'] = $_POST['username'];
+$_SESSION['password'] = $_POST['password'];
+$username = $_POST["username"];
+$password = $_POST["password"];
 $dbname = "rats";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);

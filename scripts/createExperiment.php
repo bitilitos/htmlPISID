@@ -1,8 +1,9 @@
 <?php
 // Create a database connection
 $servername = "localhost";
-$username = "rita";
-$password = "rita";
+session_start();
+$username = $_SESSION['username'];
+$password = $_SESSION['password'];
 $dbname = "rats";
 $dsn = 'mysql:host=localhost;dbname=rats';
 
@@ -83,7 +84,6 @@ $success = $stmt->execute();
 if ($success) {
     $experiment_id = $pdo->query("SELECT LAST_INSERT_ID()")->fetchColumn();
 
-    //Verificar com a Rita qual deve ser o odourCode
     if (!empty($room1)) {
         $stmt = $pdo->prepare("CALL spCreateOdour(:experimentId, :room, :odourCode)");
         $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);

@@ -2,8 +2,9 @@
 
 // Create a database connection
 $servername = "localhost";
-$username = "rita";
-$password = "rita";
+session_start();
+$username = $_SESSION['username'];
+$password = $_SESSION['password'];
 $dsn = 'mysql:host=localhost;dbname=rats';
 
 global $dbname;
