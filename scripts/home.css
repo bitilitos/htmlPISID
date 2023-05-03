@@ -19,13 +19,14 @@
 }
 
 .homeTitle{
-    margin-top: 80px;
+    margin-top: 8%;
     text-align: center;
     font-size: 35px;
 }
 
 .leftButton, .centerButton, .rightButton{
     text-align: center;
+    margin-top: 5%;
     padding: 20px;
     width: 250px;
     height: 80px;

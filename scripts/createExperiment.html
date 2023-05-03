@@ -27,15 +27,15 @@
                         <img src="images/calendar.png" class="icon"><input class="createExperimentInput" id="datetime" type="datetime-local" min="" name="date" placeholder=" Date of Start of Experiment" required>
                     </div>
                     <div class="rightColumn">
-                        <img src="images/numbers.png" class="icon"><input class="createExperimentInput" type="number" min="1" max="100" name="ratsNumber" placeholder=" Rats Number" required>
+                        <img src="images/numbers.png" class="icon"><input class="createExperimentInput" type="number" min="1" max="100" name="ratsNumber" id ="ratsNumber" placeholder=" Rats Number" required>
                         <br><br>
                         <img src="images/rat.png" class="icon"><input class="createExperimentInput" type="number" min="1" max="100" name="ratsLimitPerRoom" placeholder=" Rats Limit per Room" required>
                         <br><br>
-                        <img src="images/hand.png" class="icon"><input class="createExperimentInput" type="number" name="secondsWithoutMovement" placeholder=" Seconds Without Movement" required>
+                        <img src="images/hand.png" class="icon"><input class="createExperimentInput" type="number" min="1" max="30" name="secondsWithoutMovement" placeholder=" Seconds Without Movement" required>
                         <br><br>
                         <img src="images/thermometer.png" class="icon"><input class="createExperimentInput" type="number" step="any" name="idealTemperature" placeholder=" Ideal Temperature" required>
                         <br><br>
-                        <img src="images/variation.png" class="icon"><input class="createExperimentInput" type="number" step="any" name="variationMaximumTemperature" placeholder=" Variation Maximum Temperature" required>
+                        <img src="images/variation.png" class="icon"><input class="createExperimentInput" type="number" min="1" max="5" step="any" name="variationMaximumTemperature" placeholder=" Variation Maximum Temperature" required>
                     </div>
                 </div>
                 <div class="info-box-content">
@@ -223,7 +223,7 @@
                     </div>
                 </div>
                 <br><br>
-                <input class="submitButton" type="submit" value="Submit">
+                <input class="submitButton" type="submit" value="Submit" onclick="counter(event)">
             </form>
         </div>
     </section>
@@ -233,7 +233,32 @@
 
 <script>
     const now = new Date();
-    const timezoneOffset = now.getTimezoneOffset() * 60000; // Offset in milliseconds
+    const timezoneOffset = now.getTimezoneOffset() * 60000;
     const minDate = new Date(now - timezoneOffset).toISOString().slice(0, 16);
     document.getElementById("datetime").setAttribute("min", minDate);
+
+    function counter(event) {
+        var counter = 0;
+        var ratsNumber = document.getElementById("ratsNumber").value;
+        var domperidone = document.getElementById("domperidone").value;
+        var metoclopramide = document.getElementById("metoclopramide").value;
+        var dimenhydrinate = document.getElementById("dimenhydrinate").value;
+        var tramadol = document.getElementById("tramadol").value;
+        var acetylSalicylicAcid = document.getElementById("acetylSalicylicAcid").value;
+        var diclofenac = document.getElementById("diclofenac").value;
+        var paracetamol = document.getElementById("paracetamol").value;
+        var thiocolchicoside = document.getElementById("thiocolchicoside").value;
+        var diazepam = document.getElementById("diazepam").value;
+        var morphine = document.getElementById("morphine").value;
+
+        counter = domperidone + metoclopramide + dimenhydrinate + tramadol + acetylSalicylicAcid + diclofenac + paracetamol + thiocolchicoside + diazepam + morphine;
+
+        if (counter > ratsNumber) {
+            alert("Only the number of rats defined above may be injected with substances!");
+            event.preventDefault();
+        } else {
+            document.querySelector('form').submit();
+        }
+    }
+</script>
 </script>

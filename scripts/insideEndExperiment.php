@@ -156,7 +156,7 @@ function endExperiment() {
                 <img src="images/back.png" class="icon" id="back"><a class="backLink" href="home.php">Go Back</a>
             </div>
             <div class="homeTitle">
-                <h1 class="mainTitle"><span class="underline">E</span>xperiment Management</h1>
+                <h1 class="mainTitle"><span class="underline">E</span>nd Experiment</h1>
             </div>
             <div class="info-box-content">
                 <table class="info-box-table" id="table1">
