@@ -16,6 +16,7 @@ if (mysqli_connect_errno()) {
     exit;
 }
 
+
 // Process the login form data
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
