@@ -13,6 +13,8 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 // Check the connection
 if (mysqli_connect_errno()) {
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    header('Location: test.php');
+    exit();
 }
 
 // Process the login form data
@@ -25,17 +27,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $result = mysqli_query($conn, $sql);
 
     if (!$result) {
-        // Display an error message
         echo "Error: " . mysqli_error($conn);
     } else if (mysqli_num_rows($result) == 1) {
-        // Redirect to the home page or the dashboard
         echo "Login successful.";
         header('Location: home.php');
         exit();
     } else {
-        // Display an error message
         echo "Invalid login credentials. Please try again.";
     }
+}
+
+function sendAlert() {
+    echo "<p>Invalid login credentials. Please try again.</p>";
 }
 
 // Close the database connection

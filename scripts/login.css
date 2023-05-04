@@ -48,6 +48,10 @@
     margin-left: 50px;
 }
 
+.alert {
+    margin-left: 50px;
+}
+
 .loginInput1, .loginInput2 {
     border: none;
     background-color: rgb(110, 110, 110);
