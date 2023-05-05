@@ -351,8 +351,6 @@ function editExperiment() {
     global $password;
     global $id;
 
-    $pdo = new PDO($dsn, $username, $password);
-
     $description = $_POST['description'];
     $researcher = $_POST['researcher'];
     $date = $_POST['date'];
@@ -422,11 +420,10 @@ function editExperiment() {
     $success = $stmt->execute();
 
     if ($success) {
-        $experiment_id = $id;
 
         if (!empty($room1)) {
             $stmt = $pdo->prepare("CALL spUpdateOdour(:experimentId, :room, :odourCode)");
-            $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
+            $stmt->bindParam(':experimentId', $id, PDO::PARAM_INT);
             $stmt->bindParam(':room', $r1, PDO::PARAM_INT);
             $stmt->bindParam(':odourCode', $room1, PDO::PARAM_STR);
             $success = $stmt->execute();
@@ -439,7 +436,7 @@ function editExperiment() {
         }
         if (!empty($room2)) {
             $stmt = $pdo->prepare("CALL spUpdateOdour(:experimentId, :room, :odourCode)");
-            $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
+            $stmt->bindParam(':experimentId', $id, PDO::PARAM_INT);
             $stmt->bindParam(':room', $r2, PDO::PARAM_INT);
             $stmt->bindParam(':odourCode', $room2, PDO::PARAM_STR);
             $success = $stmt->execute();
@@ -452,7 +449,7 @@ function editExperiment() {
         }
         if (!empty($room3)) {
             $stmt = $pdo->prepare("CALL spUpdateOdour(:experimentId, :room, :odourCode)");
-            $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
+            $stmt->bindParam(':experimentId', $id, PDO::PARAM_INT);
             $stmt->bindParam(':room', $r3, PDO::PARAM_INT);
             $stmt->bindParam(':odourCode', $room3, PDO::PARAM_STR);
             $success = $stmt->execute();
@@ -465,7 +462,7 @@ function editExperiment() {
         }
         if (!empty($room4)) {
             $stmt = $pdo->prepare("CALL spUpdateOdour(:experimentId, :room, :odourCode)");
-            $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
+            $stmt->bindParam(':experimentId', $id, PDO::PARAM_INT);
             $stmt->bindParam(':room', $r4, PDO::PARAM_INT);
             $stmt->bindParam(':odourCode', $room4, PDO::PARAM_STR);
             $success = $stmt->execute();
@@ -478,7 +475,7 @@ function editExperiment() {
         }
         if (!empty($room5)) {
             $stmt = $pdo->prepare("CALL spUpdateOdour(:experimentId, :room, :odourCode)");
-            $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
+            $stmt->bindParam(':experimentId', $id, PDO::PARAM_INT);
             $stmt->bindParam(':room', $r5, PDO::PARAM_INT);
             $stmt->bindParam(':odourCode', $room5, PDO::PARAM_STR);
             $success = $stmt->execute();
@@ -491,7 +488,7 @@ function editExperiment() {
         }
         if (!empty($room6)) {
             $stmt = $pdo->prepare("CALL spUpdateOdour(:experimentId, :room, :odourCode)");
-            $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
+            $stmt->bindParam(':experimentId', $id, PDO::PARAM_INT);
             $stmt->bindParam(':room', $r6, PDO::PARAM_INT);
             $stmt->bindParam(':odourCode', $room6, PDO::PARAM_STR);
             $success = $stmt->execute();
@@ -504,7 +501,7 @@ function editExperiment() {
         }
         if (!empty($room7)) {
             $stmt = $pdo->prepare("CALL spUpdateOdour(:experimentId, :room, :odourCode)");
-            $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
+            $stmt->bindParam(':experimentId', $id, PDO::PARAM_INT);
             $stmt->bindParam(':room', $r7, PDO::PARAM_INT);
             $stmt->bindParam(':odourCode', $room7, PDO::PARAM_STR);
             $success = $stmt->execute();
@@ -517,7 +514,7 @@ function editExperiment() {
         }
         if (!empty($room8)) {
             $stmt = $pdo->prepare("CALL spUpdateOdour(:experimentId, :room, :odourCode)");
-            $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
+            $stmt->bindParam(':experimentId', $id, PDO::PARAM_INT);
             $stmt->bindParam(':room', $r8, PDO::PARAM_INT);
             $stmt->bindParam(':odourCode', $room8, PDO::PARAM_STR);
             $success = $stmt->execute();
@@ -530,7 +527,7 @@ function editExperiment() {
         }
         if (!empty($room9)) {
             $stmt = $pdo->prepare("CALL spUpdateOdour(:experimentId, :room, :odourCode)");
-            $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
+            $stmt->bindParam(':experimentId', $id, PDO::PARAM_INT);
             $stmt->bindParam(':room', $r9, PDO::PARAM_INT);
             $stmt->bindParam(':odourCode', $room9, PDO::PARAM_STR);
             $success = $stmt->execute();
@@ -543,7 +540,7 @@ function editExperiment() {
         }
         if (!empty($room10)) {
             $stmt = $pdo->prepare("CALL spUpdateOdour(:experimentId, :room, :odourCode)");
-            $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
+            $stmt->bindParam(':experimentId', $id, PDO::PARAM_INT);
             $stmt->bindParam(':room', $r10, PDO::PARAM_INT);
             $stmt->bindParam(':odourCode', $room10, PDO::PARAM_STR);
             $success = $stmt->execute();
@@ -556,7 +553,7 @@ function editExperiment() {
         }
         if (!empty($morphine)) {
             $stmt = $pdo->prepare("CALL spUpdateSubstance(:experimentId, :substance, :ratsNumber)");
-            $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
+            $stmt->bindParam(':experimentId', $id, PDO::PARAM_INT);
             $stmt->bindParam(':substance', $s1, PDO::PARAM_STR);
             $stmt->bindParam(':ratsNumber', $morphine, PDO::PARAM_INT);
             $success = $stmt->execute();
@@ -569,7 +566,7 @@ function editExperiment() {
         }
         if (!empty($diazepam)) {
             $stmt = $pdo->prepare("CALL spUpdateSubstance(:experimentId, :substance, :ratsNumber)");
-            $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
+            $stmt->bindParam(':experimentId', $id, PDO::PARAM_INT);
             $stmt->bindParam(':substance', $s2, PDO::PARAM_STR);
             $stmt->bindParam(':ratsNumber', $diazepam, PDO::PARAM_INT);
             $success = $stmt->execute();
@@ -582,7 +579,7 @@ function editExperiment() {
         }
         if (!empty($thiocolchicoside)) {
             $stmt = $pdo->prepare("CALL spUpdateSubstance(:experimentId, :substance, :ratsNumber)");
-            $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
+            $stmt->bindParam(':experimentId', $id, PDO::PARAM_INT);
             $stmt->bindParam(':substance', $s3, PDO::PARAM_STR);
             $stmt->bindParam(':ratsNumber', $thiocolchicoside, PDO::PARAM_INT);
             $success = $stmt->execute();
@@ -595,7 +592,7 @@ function editExperiment() {
         }
         if (!empty($paracetamol)) {
             $stmt = $pdo->prepare("CALL spUpdateSubstance(:experimentId, :substance, :ratsNumber)");
-            $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
+            $stmt->bindParam(':experimentId', $id, PDO::PARAM_INT);
             $stmt->bindParam(':substance', $s4, PDO::PARAM_STR);
             $stmt->bindParam(':ratsNumber', $paracetamol, PDO::PARAM_INT);
             $success = $stmt->execute();
@@ -608,7 +605,7 @@ function editExperiment() {
         }
         if (!empty($diclofenac)) {
             $stmt = $pdo->prepare("CALL spUpdateSubstance(:experimentId, :substance, :ratsNumber)");
-            $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
+            $stmt->bindParam(':experimentId', $id, PDO::PARAM_INT);
             $stmt->bindParam(':substance', $s4, PDO::PARAM_STR);
             $stmt->bindParam(':ratsNumber', $diclofenac, PDO::PARAM_INT);
             $success = $stmt->execute();
@@ -621,7 +618,7 @@ function editExperiment() {
         }
         if (!empty($acetylSalicylicAcid)) {
             $stmt = $pdo->prepare("CALL spUpdateSubstance(:experimentId, :substance, :ratsNumber)");
-            $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
+            $stmt->bindParam(':experimentId', $id, PDO::PARAM_INT);
             $stmt->bindParam(':substance', $s6, PDO::PARAM_STR);
             $stmt->bindParam(':ratsNumber', $acetylSalicylicAcid, PDO::PARAM_INT);
             $success = $stmt->execute();
@@ -634,7 +631,7 @@ function editExperiment() {
         }
         if (!empty($tramadol)) {
             $stmt = $pdo->prepare("CALL spUpdateSubstance(:experimentId, :substance, :ratsNumber)");
-            $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
+            $stmt->bindParam(':experimentId', $id, PDO::PARAM_INT);
             $stmt->bindParam(':substance', $s7, PDO::PARAM_STR);
             $stmt->bindParam(':ratsNumber', $tramadol, PDO::PARAM_INT);
             $success = $stmt->execute();
@@ -647,7 +644,7 @@ function editExperiment() {
         }
         if (!empty($dimenhydrinate)) {
             $stmt = $pdo->prepare("CALL spUpdateSubstance(:experimentId, :substance, :ratsNumber)");
-            $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
+            $stmt->bindParam(':experimentId', $id, PDO::PARAM_INT);
             $stmt->bindParam(':substance', $s8, PDO::PARAM_STR);
             $stmt->bindParam(':ratsNumber', $dimenhydrinate, PDO::PARAM_INT);
             $success = $stmt->execute();
@@ -660,7 +657,7 @@ function editExperiment() {
         }
         if (!empty($metoclopramide)) {
             $stmt = $pdo->prepare("CALL spUpdateSubstance(:experimentId, :substance, :ratsNumber)");
-            $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
+            $stmt->bindParam(':experimentId', $id, PDO::PARAM_INT);
             $stmt->bindParam(':substance', $s9, PDO::PARAM_STR);
             $stmt->bindParam(':ratsNumber', $metoclopramide, PDO::PARAM_INT);
             $success = $stmt->execute();
@@ -673,7 +670,7 @@ function editExperiment() {
         }
         if (!empty($domperidone)) {
             $stmt = $pdo->prepare("CALL spUpdateSubstance(:experimentId, :substance, :ratsNumber)");
-            $stmt->bindParam(':experimentId', $experiment_id, PDO::PARAM_INT);
+            $stmt->bindParam(':experimentId', $id, PDO::PARAM_INT);
             $stmt->bindParam(':substance', $s10, PDO::PARAM_STR);
             $stmt->bindParam(':ratsNumber', $domperidone, PDO::PARAM_INT);
             $success = $stmt->execute();
@@ -715,7 +712,7 @@ if (isset($_POST['edit'])) {
             <div class="homeTitle">
                 <h1 class="mainTitle"><span class="underline">E</span>dit Experiment</h1>
             </div>
-            <form method="post" action="createExperiment.php">
+            <form method="post" action="insideEditExperiment.php">
                 <div class="info-box-content">
                     <div class="leftColumn">
                         <img src="images/description.png" class="icon"><textarea class="descriptionTextArea" name="description" cols="40" rows="5" required><?php getDescription();?></textarea>
@@ -921,7 +918,8 @@ if (isset($_POST['edit'])) {
                     </div>
                 </div>
                 <br><br>
-                <input class="submitButton" type="submit" value="Edit Experiment" onclick="counter(event)">
+                <input type="hidden" name="id" value="<?php echo $id; ?>">
+                <input type="submit" name="edit" class="editExperiment" value="Edit Experiment" onclick="counter(event)">
             </form>
         </div>
     </section>

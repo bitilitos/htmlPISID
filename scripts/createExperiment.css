@@ -60,3 +60,17 @@ input::placeholder{
     font-size: 18px;
     cursor: pointer;
 }
+
+.editExperiment{
+    color: white;
+    background-color: #54516B;
+    width: 250px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    float: right;
+    margin-right: 14%;
+    margin-bottom: 5%;
+    font-size: 18px;
+    cursor: pointer;
+}
