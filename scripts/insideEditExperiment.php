@@ -49,7 +49,11 @@ function getDateHour() {
     $sql = "SELECT $dbname.experiment.DateHour FROM experiment WHERE IDExperiment = " . $id;
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
-    echo $row['DateHour'];
+
+    // Format the date value
+    $formattedDateTime = date('Y-m-d\TH:i', strtotime($row['DateHour']));
+    // Return the formatted date value
+    return $formattedDateTime;
 }
 
 function getRatsNumber() {
