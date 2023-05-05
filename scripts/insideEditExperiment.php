@@ -345,7 +345,6 @@ function getSubstance10RatsNumber() {
 
 function editExperiment() {
 
-    global $conn;
     global $dsn;
     global $username;
     global $password;
@@ -421,7 +420,6 @@ function editExperiment() {
 
     if ($success) {
 
-        if (!empty($room1)) {
             $stmt = $pdo->prepare("CALL spUpdateOdour(:experimentId, :room, :odourCode)");
             $stmt->bindParam(':experimentId', $id, PDO::PARAM_INT);
             $stmt->bindParam(':room', $r1, PDO::PARAM_INT);
@@ -433,8 +431,6 @@ function editExperiment() {
             } else {
                 echo "Database query failed.";
             }
-        }
-        if (!empty($room2)) {
             $stmt = $pdo->prepare("CALL spUpdateOdour(:experimentId, :room, :odourCode)");
             $stmt->bindParam(':experimentId', $id, PDO::PARAM_INT);
             $stmt->bindParam(':room', $r2, PDO::PARAM_INT);
@@ -446,8 +442,6 @@ function editExperiment() {
             } else {
                 echo "Database query failed.";
             }
-        }
-        if (!empty($room3)) {
             $stmt = $pdo->prepare("CALL spUpdateOdour(:experimentId, :room, :odourCode)");
             $stmt->bindParam(':experimentId', $id, PDO::PARAM_INT);
             $stmt->bindParam(':room', $r3, PDO::PARAM_INT);
@@ -459,8 +453,6 @@ function editExperiment() {
             } else {
                 echo "Database query failed.";
             }
-        }
-        if (!empty($room4)) {
             $stmt = $pdo->prepare("CALL spUpdateOdour(:experimentId, :room, :odourCode)");
             $stmt->bindParam(':experimentId', $id, PDO::PARAM_INT);
             $stmt->bindParam(':room', $r4, PDO::PARAM_INT);
@@ -472,8 +464,6 @@ function editExperiment() {
             } else {
                 echo "Database query failed.";
             }
-        }
-        if (!empty($room5)) {
             $stmt = $pdo->prepare("CALL spUpdateOdour(:experimentId, :room, :odourCode)");
             $stmt->bindParam(':experimentId', $id, PDO::PARAM_INT);
             $stmt->bindParam(':room', $r5, PDO::PARAM_INT);
@@ -485,8 +475,6 @@ function editExperiment() {
             } else {
                 echo "Database query failed.";
             }
-        }
-        if (!empty($room6)) {
             $stmt = $pdo->prepare("CALL spUpdateOdour(:experimentId, :room, :odourCode)");
             $stmt->bindParam(':experimentId', $id, PDO::PARAM_INT);
             $stmt->bindParam(':room', $r6, PDO::PARAM_INT);
@@ -498,8 +486,6 @@ function editExperiment() {
             } else {
                 echo "Database query failed.";
             }
-        }
-        if (!empty($room7)) {
             $stmt = $pdo->prepare("CALL spUpdateOdour(:experimentId, :room, :odourCode)");
             $stmt->bindParam(':experimentId', $id, PDO::PARAM_INT);
             $stmt->bindParam(':room', $r7, PDO::PARAM_INT);
@@ -511,8 +497,6 @@ function editExperiment() {
             } else {
                 echo "Database query failed.";
             }
-        }
-        if (!empty($room8)) {
             $stmt = $pdo->prepare("CALL spUpdateOdour(:experimentId, :room, :odourCode)");
             $stmt->bindParam(':experimentId', $id, PDO::PARAM_INT);
             $stmt->bindParam(':room', $r8, PDO::PARAM_INT);
@@ -524,8 +508,6 @@ function editExperiment() {
             } else {
                 echo "Database query failed.";
             }
-        }
-        if (!empty($room9)) {
             $stmt = $pdo->prepare("CALL spUpdateOdour(:experimentId, :room, :odourCode)");
             $stmt->bindParam(':experimentId', $id, PDO::PARAM_INT);
             $stmt->bindParam(':room', $r9, PDO::PARAM_INT);
@@ -537,8 +519,6 @@ function editExperiment() {
             } else {
                 echo "Database query failed.";
             }
-        }
-        if (!empty($room10)) {
             $stmt = $pdo->prepare("CALL spUpdateOdour(:experimentId, :room, :odourCode)");
             $stmt->bindParam(':experimentId', $id, PDO::PARAM_INT);
             $stmt->bindParam(':room', $r10, PDO::PARAM_INT);
@@ -550,8 +530,6 @@ function editExperiment() {
             } else {
                 echo "Database query failed.";
             }
-        }
-        if (!empty($morphine)) {
             $stmt = $pdo->prepare("CALL spUpdateSubstance(:experimentId, :substance, :ratsNumber)");
             $stmt->bindParam(':experimentId', $id, PDO::PARAM_INT);
             $stmt->bindParam(':substance', $s1, PDO::PARAM_STR);
@@ -563,8 +541,7 @@ function editExperiment() {
             } else {
                 echo "Database query failed.";
             }
-        }
-        if (!empty($diazepam)) {
+
             $stmt = $pdo->prepare("CALL spUpdateSubstance(:experimentId, :substance, :ratsNumber)");
             $stmt->bindParam(':experimentId', $id, PDO::PARAM_INT);
             $stmt->bindParam(':substance', $s2, PDO::PARAM_STR);
@@ -576,8 +553,7 @@ function editExperiment() {
             } else {
                 echo "Database query failed.";
             }
-        }
-        if (!empty($thiocolchicoside)) {
+
             $stmt = $pdo->prepare("CALL spUpdateSubstance(:experimentId, :substance, :ratsNumber)");
             $stmt->bindParam(':experimentId', $id, PDO::PARAM_INT);
             $stmt->bindParam(':substance', $s3, PDO::PARAM_STR);
@@ -589,8 +565,7 @@ function editExperiment() {
             } else {
                 echo "Database query failed.";
             }
-        }
-        if (!empty($paracetamol)) {
+
             $stmt = $pdo->prepare("CALL spUpdateSubstance(:experimentId, :substance, :ratsNumber)");
             $stmt->bindParam(':experimentId', $id, PDO::PARAM_INT);
             $stmt->bindParam(':substance', $s4, PDO::PARAM_STR);
@@ -602,11 +577,10 @@ function editExperiment() {
             } else {
                 echo "Database query failed.";
             }
-        }
-        if (!empty($diclofenac)) {
+
             $stmt = $pdo->prepare("CALL spUpdateSubstance(:experimentId, :substance, :ratsNumber)");
             $stmt->bindParam(':experimentId', $id, PDO::PARAM_INT);
-            $stmt->bindParam(':substance', $s4, PDO::PARAM_STR);
+            $stmt->bindParam(':substance', $s5, PDO::PARAM_STR);
             $stmt->bindParam(':ratsNumber', $diclofenac, PDO::PARAM_INT);
             $success = $stmt->execute();
 
@@ -615,8 +589,7 @@ function editExperiment() {
             } else {
                 echo "Database query failed.";
             }
-        }
-        if (!empty($acetylSalicylicAcid)) {
+
             $stmt = $pdo->prepare("CALL spUpdateSubstance(:experimentId, :substance, :ratsNumber)");
             $stmt->bindParam(':experimentId', $id, PDO::PARAM_INT);
             $stmt->bindParam(':substance', $s6, PDO::PARAM_STR);
@@ -628,8 +601,7 @@ function editExperiment() {
             } else {
                 echo "Database query failed.";
             }
-        }
-        if (!empty($tramadol)) {
+
             $stmt = $pdo->prepare("CALL spUpdateSubstance(:experimentId, :substance, :ratsNumber)");
             $stmt->bindParam(':experimentId', $id, PDO::PARAM_INT);
             $stmt->bindParam(':substance', $s7, PDO::PARAM_STR);
@@ -641,8 +613,7 @@ function editExperiment() {
             } else {
                 echo "Database query failed.";
             }
-        }
-        if (!empty($dimenhydrinate)) {
+
             $stmt = $pdo->prepare("CALL spUpdateSubstance(:experimentId, :substance, :ratsNumber)");
             $stmt->bindParam(':experimentId', $id, PDO::PARAM_INT);
             $stmt->bindParam(':substance', $s8, PDO::PARAM_STR);
@@ -654,8 +625,7 @@ function editExperiment() {
             } else {
                 echo "Database query failed.";
             }
-        }
-        if (!empty($metoclopramide)) {
+
             $stmt = $pdo->prepare("CALL spUpdateSubstance(:experimentId, :substance, :ratsNumber)");
             $stmt->bindParam(':experimentId', $id, PDO::PARAM_INT);
             $stmt->bindParam(':substance', $s9, PDO::PARAM_STR);
@@ -667,8 +637,7 @@ function editExperiment() {
             } else {
                 echo "Database query failed.";
             }
-        }
-        if (!empty($domperidone)) {
+
             $stmt = $pdo->prepare("CALL spUpdateSubstance(:experimentId, :substance, :ratsNumber)");
             $stmt->bindParam(':experimentId', $id, PDO::PARAM_INT);
             $stmt->bindParam(':substance', $s10, PDO::PARAM_STR);
@@ -680,7 +649,7 @@ function editExperiment() {
             } else {
                 echo "Database query failed.";
             }
-        }
+
     } else {
         die("Database query failed.");
     }
@@ -715,9 +684,9 @@ if (isset($_POST['edit'])) {
             <form method="POST" action="insideEditExperiment.php?id=<?php echo $id; ?>">
                 <div class="info-box-content">
                     <div class="leftColumn">
-                        <img src="images/description.png" class="icon"><textarea class="descriptionTextArea" name="description" cols="40" rows="5" required><?php getDescription();?></textarea>
+                        <img src="images/description.png" class="icon"><textarea class="descriptionTextArea" id="description" name="description" cols="40" rows="5" value="<?php echo getDescription();?>" required><?php echo getDescription();?></textarea>
                         <br><br>
-                        <img src="images/researcher.png" class="icon"><input class="createExperimentInput" type="text" name="researcher" value="<?php getResearcher();?>" required>
+                        <img src="images/researcher.png" class="icon"><input class="createExperimentInput" type="text" id="researcher" name="researcher" value="<?php getResearcher();?>" required>
                         <br><br>
                         <img src="images/calendar.png" class="icon"><input class="createExperimentInput" id="datetime" type="datetime-local" min="" name="date" value="<?php echo getDateHour();?>" required>
                     </div>
