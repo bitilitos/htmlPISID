@@ -698,7 +698,7 @@ if (isset($_POST['edit'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Experiment</title>
+    <title>Edit Experiment</title>
     <link rel="stylesheet" href="common.css">
     <link rel="stylesheet" href="createExperiment.css">
 </head>
@@ -712,7 +712,7 @@ if (isset($_POST['edit'])) {
             <div class="homeTitle">
                 <h1 class="mainTitle"><span class="underline">E</span>dit Experiment</h1>
             </div>
-            <form method="post" action="insideEditExperiment.php">
+            <form method="POST" action="insideEditExperiment.php?id=<?php echo $id; ?>">
                 <div class="info-box-content">
                     <div class="leftColumn">
                         <img src="images/description.png" class="icon"><textarea class="descriptionTextArea" name="description" cols="40" rows="5" required><?php getDescription();?></textarea>
@@ -737,6 +737,7 @@ if (isset($_POST['edit'])) {
                     <div class="dropdowns">
                         <img src="images/smell.png" class="icon"><select class="selects" id="room1" name="room1">
                             <option value="<?php echo getRoom1Odour();?>">Room 1: <?php echo getRoom1Odour();?></option>
+                            <option value="">Remove odour</option>
                             <option value="VAN">Vanilla</option>
                             <option value="CHO">Chocolate</option>
                             <option value="COF">Coffee</option>
@@ -744,6 +745,7 @@ if (isset($_POST['edit'])) {
                         <br><br>
                         <img src="images/smell.png" class="icon"><select class="selects" id="room2" name="room2">
                             <option value="<?php echo getRoom2Odour();?>">Room 2: <?php echo getRoom2Odour();?></option>
+                            <option value="">Remove odour</option>
                             <option value="VAN">Vanilla</option>
                             <option value="CHO">Chocolate</option>
                             <option value="COF">Coffee</option>
@@ -751,6 +753,7 @@ if (isset($_POST['edit'])) {
                         <br><br>
                         <img src="images/smell.png" class="icon"><select class="selects" id="room3" name="room3">
                             <option value="<?php echo getRoom3Odour();?>">Room 3: <?php echo getRoom3Odour();?></option>
+                            <option value="">Remove odour</option>
                             <option value="VAN">Vanilla</option>
                             <option value="CHO">Chocolate</option>
                             <option value="COF">Coffee</option>
@@ -758,6 +761,7 @@ if (isset($_POST['edit'])) {
                         <br><br>
                         <img src="images/smell.png" class="icon"><select class="selects" id="room4" name="room4">
                             <option value="<?php echo getRoom4Odour();?>">Room 4: <?php echo getRoom4Odour();?></option>
+                            <option value="">Remove odour</option>
                             <option value="VAN">Vanilla</option>
                             <option value="CHO">Chocolate</option>
                             <option value="COF">Coffee</option>
@@ -765,6 +769,7 @@ if (isset($_POST['edit'])) {
                         <br><br>
                         <img src="images/smell.png" class="icon"><select class="selects" id="room5" name="room5">
                             <option value="<?php echo getRoom5Odour();?>">Room 5: <?php echo getRoom5Odour();?></option>
+                            <option value="">Remove odour</option>
                             <option value="VAN">Vanilla</option>
                             <option value="CHO">Chocolate</option>
                             <option value="COF">Coffee</option>
@@ -772,6 +777,7 @@ if (isset($_POST['edit'])) {
                         <br><br>
                         <img src="images/smell.png" class="icon"><select class="selects" id="room6" name="room6">
                             <option value="<?php echo getRoom6Odour();?>">Room 6: <?php echo getRoom6Odour();?></option>
+                            <option value="">Remove odour</option>
                             <option value="VAN">Vanilla</option>
                             <option value="CHO">Chocolate</option>
                             <option value="COF">Coffee</option>
@@ -779,6 +785,7 @@ if (isset($_POST['edit'])) {
                         <br><br>
                         <img src="images/smell.png" class="icon"><select class="selects" id="room7" name="room7">
                             <option value="<?php echo getRoom7Odour();?>">Room 7: <?php echo getRoom7Odour();?></option>
+                            <option value="">Remove odour</option>
                             <option value="VAN">Vanilla</option>
                             <option value="CHO">Chocolate</option>
                             <option value="COF">Coffee</option>
@@ -786,6 +793,7 @@ if (isset($_POST['edit'])) {
                         <br><br>
                         <img src="images/smell.png" class="icon"><select class="selects" id="room8" name="room8">
                             <option value="<?php echo getRoom8Odour();?>">Room 8: <?php echo getRoom8Odour();?></option>
+                            <option value="">Remove odour</option>
                             <option value="VAN">Vanilla</option>
                             <option value="CHO">Chocolate</option>
                             <option value="COF">Coffee</option>
@@ -793,6 +801,7 @@ if (isset($_POST['edit'])) {
                         <br><br>
                         <img src="images/smell.png" class="icon"><select class="selects" id="room9" name="room9">
                             <option value="<?php echo getRoom9Odour();?>">Room 9: <?php echo getRoom9Odour();?></option>
+                            <option value="">Remove odour</option>
                             <option value="VAN">Vanilla</option>
                             <option value="CHO">Chocolate</option>
                             <option value="COF">Coffee</option>
@@ -800,6 +809,7 @@ if (isset($_POST['edit'])) {
                         <br><br>
                         <img src="images/smell.png" class="icon"><select class="selects" id="room10" name="room10">
                             <option value="<?php echo getRoom10Odour();?>">Room 10: <?php echo getRoom10Odour();?></option>
+                            <option value="">Remove odour</option>
                             <option value="VAN">Vanilla</option>
                             <option value="CHO">Chocolate</option>
                             <option value="COF">Coffee</option>
@@ -808,6 +818,7 @@ if (isset($_POST['edit'])) {
                     <div class="dropdowns">
                         <img src="images/substance.png" class="icon"><select class="selects" id="morphine" name="morphine">
                             <option value="<?php echo getSubstance1RatsNumber();?>">Morphine: <?php echo getSubstance1RatsNumber();?></option>
+                            <option value="">0</option>
                             <option value="10">10</option>
                             <option value="20">20</option>
                             <option value="30">30</option>
@@ -819,6 +830,7 @@ if (isset($_POST['edit'])) {
                         <br><br>
                         <img src="images/substance.png" class="icon"><select class="selects" id="diazepam" name="diazepam">
                             <option value="<?php echo getSubstance2RatsNumber();?>">Diazepam: <?php echo getSubstance2RatsNumber();?></option>
+                            <option value="">0</option>
                             <option value="10">10</option>
                             <option value="20">20</option>
                             <option value="30">30</option>
@@ -830,6 +842,7 @@ if (isset($_POST['edit'])) {
                         <br><br>
                         <img src="images/substance.png" class="icon"><select class="selects" id="thiocolchicoside" name="thiocolchicoside">
                             <option value="<?php echo getSubstance3RatsNumber();?>">Thiocolchicoside: <?php echo getSubstance3RatsNumber();?></option>
+                            <option value="">0</option>
                             <option value="10">10</option>
                             <option value="20">20</option>
                             <option value="30">30</option>
@@ -841,6 +854,7 @@ if (isset($_POST['edit'])) {
                         <br><br>
                         <img src="images/substance.png" class="icon"><select class="selects" id="paracetamol" name="paracetamol">
                             <option value="<?php echo getSubstance4RatsNumber();?>">Paracetamol: <?php echo getSubstance4RatsNumber();?></option>
+                            <option value="">0</option>
                             <option value="10">10</option>
                             <option value="20">20</option>
                             <option value="30">30</option>
@@ -852,6 +866,7 @@ if (isset($_POST['edit'])) {
                         <br><br>
                         <img src="images/substance.png" class="icon"><select class="selects" id="diclofenac" name="diclofenac">
                             <option value="<?php echo getSubstance5RatsNumber();?>">Diclofenac: <?php echo getSubstance5RatsNumber();?></option>
+                            <option value="">0</option>
                             <option value="10">10</option>
                             <option value="20">20</option>
                             <option value="30">30</option>
@@ -863,6 +878,7 @@ if (isset($_POST['edit'])) {
                         <br><br>
                         <img src="images/substance.png" class="icon"><select class="selects" id="acetylSalicylicAcid" name="acetylSalicylicAcid">
                             <option value="<?php echo getSubstance6RatsNumber();?>">Acetyl Salicylic Acid: <?php echo getSubstance6RatsNumber();?></option>
+                            <option value="">0</option>
                             <option value="10">10</option>
                             <option value="20">20</option>
                             <option value="30">30</option>
@@ -874,6 +890,7 @@ if (isset($_POST['edit'])) {
                         <br><br>
                         <img src="images/substance.png" class="icon"><select class="selects" id="tramadol" name="tramadol">
                             <option value="<?php echo getSubstance7RatsNumber();?>">Tramadol: <?php echo getSubstance7RatsNumber();?></option>
+                            <option value="">0</option>
                             <option value="10">10</option>
                             <option value="20">20</option>
                             <option value="30">30</option>
@@ -885,6 +902,7 @@ if (isset($_POST['edit'])) {
                         <br><br>
                         <img src="images/substance.png" class="icon"><select class="selects" id="dimenhydrinate" name="dimenhydrinate">
                             <option value="<?php echo getSubstance8RatsNumber();?>">Dimenhydrinate: <?php echo getSubstance8RatsNumber();?></option>
+                            <option value="">0</option>
                             <option value="10">10</option>
                             <option value="20">20</option>
                             <option value="30">30</option>
@@ -896,6 +914,7 @@ if (isset($_POST['edit'])) {
                         <br><br>
                         <img src="images/substance.png" class="icon"><select class="selects" id="metoclopramide" name="metoclopramide">
                             <option value="<?php echo getSubstance9RatsNumber();?>">Metoclopramide: <?php echo getSubstance9RatsNumber();?></option>
+                            <option value="">0</option>
                             <option value="10">10</option>
                             <option value="20">20</option>
                             <option value="30">30</option>
@@ -907,6 +926,7 @@ if (isset($_POST['edit'])) {
                         <br><br>
                         <img src="images/substance.png" class="icon"><select class="selects" id="domperidone" name="domperidone">
                             <option value="<?php echo getSubstance10RatsNumber();?>">Domperidone: <?php echo getSubstance10RatsNumber();?></option>
+                            <option value="">0</option>
                             <option value="10">10</option>
                             <option value="20">20</option>
                             <option value="30">30</option>
@@ -947,7 +967,7 @@ if (isset($_POST['edit'])) {
         var diazepam = document.getElementById("diazepam").value;
         var morphine = document.getElementById("morphine").value;
 
-        counter = domperidone + metoclopramide + dimenhydrinate + tramadol + acetylSalicylicAcid + diclofenac + paracetamol + thiocolchicoside + diazepam + morphine;
+        counter = +domperidone + +metoclopramide + +dimenhydrinate + +tramadol + +acetylSalicylicAcid + +diclofenac + +paracetamol + +thiocolchicoside + +diazepam + +morphine;
 
         if (counter > ratsNumber) {
             alert("Only the number of rats defined above may be injected with substances!");

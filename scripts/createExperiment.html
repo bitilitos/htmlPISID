@@ -251,7 +251,7 @@
         var diazepam = document.getElementById("diazepam").value;
         var morphine = document.getElementById("morphine").value;
 
-        counter = domperidone + metoclopramide + dimenhydrinate + tramadol + acetylSalicylicAcid + diclofenac + paracetamol + thiocolchicoside + diazepam + morphine;
+        counter = +domperidone + +metoclopramide + +dimenhydrinate + +tramadol + +acetylSalicylicAcid + +diclofenac + +paracetamol + +thiocolchicoside + +diazepam + +morphine;
 
         if (counter > ratsNumber) {
             alert("Only the number of rats defined above may be injected with substances!");

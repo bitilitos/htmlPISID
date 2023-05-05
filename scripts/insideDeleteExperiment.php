@@ -164,7 +164,7 @@ if (isset($_POST['delete'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Experiment Management</title>
+    <title>Delete Experiment</title>
     <link rel="stylesheet" href="common.css">
     <link rel="stylesheet" href="insideExperiment.css">
     <?php include 'experimentManagement.php';?>
@@ -177,7 +177,7 @@ if (isset($_POST['delete'])) {
                 <img src="images/back.png" class="icon" id="back"><a class="backLink" href="experimentManagementHTML.php">Go Back</a>
             </div>
             <div class="homeTitle">
-                <h1 class="mainTitle"><span class="underline">E</span>xperiment Management</h1>
+                <h1 class="mainTitle"><span class="underline">D</span>elete Experiment</h1>
             </div>
             <div class="info-box-content">
                 <table class="info-box-table" id="table1">
